@@ -16,5 +16,23 @@
         {{ course.description }}
       </p>
     </div>
+    <div
+      class="col-3 col-s-12 d-flex justify-content-center align-items-center"
+    >
+      <button
+        type="button"
+        class="btn btn-warning btn-sm me-3"
+        (click)="editCourse(course)"
+      >
+        Edit
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger btn-sm me-4 ms-2"
+        (click)="deleteCourse(course)"
+      >
+        Delete
+      </button>
+    </div>
   </div>
 </div>
