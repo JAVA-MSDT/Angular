@@ -7,8 +7,11 @@
       <div class="col-6 col-m-12 ps-3">
         <form class="d-flex justify-content-start align-items-start">
           <div class="">
-            <label for="searchCourse" class="visually-hidden">Password</label>
+            <label for="searchCourse" class="visually-hidden"
+              >Search Course</label
+            >
             <input
+              #searchInput
               type="test"
               class="form-control"
               id="searchCourse"
@@ -16,7 +19,13 @@
             />
           </div>
           <div class="ms-3">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="searchCourse($event, searchInput.value)"
+            >
+              Search
+            </button>
           </div>
         </form>
       </div>

@@ -8,10 +8,15 @@ import { CoursesService } from '../courses.service';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent implements OnInit {
-  courses: CourseDomain[];
+  courses: CourseDomain[] = [];
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
     this.courses = this.coursesService.getCourses();
+  }
+
+  searchCourse(event, searchArg: string): void {
+    this.courses = this.coursesService.getCourseOnSerach(searchArg);
+    event.preventDefault();
   }
 }

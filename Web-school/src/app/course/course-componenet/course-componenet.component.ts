@@ -8,7 +8,7 @@ import { CourseDomain } from 'src/app/domain/course-domain';
   styleUrls: ['./course-componenet.component.css'],
 })
 export class CourseComponenetComponent implements OnInit {
-  @Input() course;
+  @Input() course: CourseDomain;
   courseId: number;
   constructor(private router: Router, private route: ActivatedRoute) {}
 
