@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card mt-sm-3 col-md8">
+      <div class="card-body">
+        <h3 class="mb-0">Artist Directory</h3>
+        <div class="form-label" *ngIf="query">
+          <strong>For: {{ query }} </strong>
+        </div>
+        <input
+          type="text"
+          name=""
+          id=""
+          class="form-control mt-2"
+          [(ngModel)]="query"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 list-group">
+        <a
+          href="#"
+          class="
+            list-group-item list-group-item-action
+            flex-column
+            align-items-start
+          "
+          *ngFor="let artist of artists"
+          (click)="showArtist(artist)"
+          [style.backgroundColor]="artist.highlight ? '#EEE' : '#FFF'"
+        >
+          <app-artist-items [artist]="artist"></app-artist-items>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container position-relative">
+  <div class="row justify-content-center">
+    <app-artist-details
+      *ngIf="currentArtist"
+      [artist]="currentArtist"
+    ></app-artist-details>
+  </div>
+</div>
