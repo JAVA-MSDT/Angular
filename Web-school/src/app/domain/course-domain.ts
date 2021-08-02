@@ -1,7 +1,7 @@
-export interface Course {
+export interface CourseDomain {
   id: number;
   title: string;
-  creatingDate: Date;
+  creatingDate: string; //Date;
   duration: number;
   description: string;
 }
