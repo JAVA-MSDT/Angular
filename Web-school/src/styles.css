@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+/* Header Style */
+.header-bg {
+  background-color: #303240;
+  height: 60px;
+}
+
+.logo-container {
+  width: fit-content;
+  margin-left: 80px;
+}
+.oval {
+  box-sizing: border-box;
+  height: 28px;
+  width: 28px;
+  margin-top: 15px;
+}
+
+.video-course {
+  color: #ffffff;
+  font-size: 18px;
+  font-family: "SourceSansPro-Bold";
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-left: 8px;
+  margin-top: 15px;
+  text-decoration: none;
+}
+.login-logout {
+  margin-right: 40 px;
+}
+
+/* Login page */
+.form-container {
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(29, 30, 38, 0.1),
+    0 2px 10px 0 rgba(29, 30, 38, 0.15);
+  height: 400px;
+  width: 450px;
+  padding: 20px;
+}
+
+.login-label {
+  color: #333333;
+  font-size: 24px;
+  font-family: "SourceSansPro-Semibold";
+  text-transform: none;
+  text-align: left;
+  font-weight: 600;
+  height: 31px;
+  width: 58px;
+}
+.required {
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #474a59;
+  font-size: 12px;
+  font-family: "SourceSansPro-Regular";
+  text-transform: none;
+  text-align: left;
+}
+
+.input-label {
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #474a59;
+  font-size: 14px;
+  font-family: "SourceSansPro-Semibold";
+  text-transform: none;
+  text-align: left;
+  font-weight: 600;
+}
+
+.forgot-password {
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #5681ee;
+  font-size: 12px;
+  font-family: "SourceSansPro-Regular";
+  text-transform: none;
+  text-align: left;
+  text-decoration: single;
+}
+
+.wrong-e-mail-or-pass {
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #ff4e33;
+  font-size: 12px;
+  font-family: "SourceSansPro-Regular";
+  text-transform: none;
+  text-align: left;
+  height: 24px;
+  width: 132px;
+}
+
+/* Footer Style */
+.footer-bg {
+  background-color: #303240;
+  height: 60px;
+}
+
+.copyright-videocourse {
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "SourceSansPro-Regular";
+  text-transform: none;
+  text-align: left;
+}
