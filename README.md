@@ -1,3 +1,3 @@
-# angular-ivy-9zcg1m
+# Angular Crash Course 2021
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-9zcg1m)
+[From Traversy Media Channel on YouTube ⚡️](https://youtu.be/3dHNOWTI7H8)
