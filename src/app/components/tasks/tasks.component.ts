@@ -8,10 +8,11 @@ import { Task } from '../../modal/Task-Modal';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  tasks: Task[];
+  tasks: Task[] = [];
   constructor(private taskServices: TaskService) {}
 
   ngOnInit() {
-    this.tasks = this.taskServices.getTasks();
+    this.taskServices.getTasks()
+    .subscribe(tasks => this.tasks = tasks);
   }
 }

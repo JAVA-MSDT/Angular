@@ -13,6 +13,7 @@
     "@angular/router": "^12.1.0",
     "@fortawesome/angular-fontawesome": "latest",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "json-server": "^0.16.3",
     "rxjs": "^7.1.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.11.4"
@@ -23,7 +24,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "json-server --watch db.json --port 4500"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.4",
