@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'web-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
   isUserLoggedIn: boolean = false;

@@ -8,7 +8,11 @@
   "projects": {
     "Web-school": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "sass"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "web",
@@ -27,7 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.sass",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
@@ -125,7 +129,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.sass"
             ],
             "scripts": []
           }

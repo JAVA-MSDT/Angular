@@ -5,7 +5,7 @@ import { CoursesService } from '../courses.service';
 @Component({
   selector: 'web-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css'],
+  styleUrls: ['./courses.component.sass'],
 })
 export class CoursesComponent implements OnInit {
   courses: CourseDomain[] = [];
