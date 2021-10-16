@@ -1,0 +1,21 @@
+{
+  "lang": "Language",
+  "email": "Email",
+  "required": "Required",
+  "password": "Password",
+  "submit": "Submit",
+  "forget.password": "Forget Password",
+  "video.course": "VIDEO COURSES",
+  "login": "Login",
+  "logout": "Log Out",
+  "email.error": "Wrong Email or Password",
+  "courses": "Courses",
+  "search": "Search",
+  "type.to.search": "Type To Search",
+  "add.course": "Add Course",
+  "edit": "Edit",
+  "delete": "Delete",
+  "search.course": "Search Course",
+  "load.more" : "Load More"
+
+}

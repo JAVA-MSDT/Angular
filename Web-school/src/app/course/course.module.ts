@@ -5,10 +5,11 @@ import {
   CoursesRoutingModule,
   routingComponents,
 } from './courses-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [CourseComponenetComponent, routingComponents],
-  imports: [CommonModule, CoursesRoutingModule],
+  imports: [CommonModule, CoursesRoutingModule, SharedModule],
   exports: [CourseComponenetComponent],
 })
 export class CourseModule {}

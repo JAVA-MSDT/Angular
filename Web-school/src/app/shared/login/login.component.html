@@ -1,51 +1,30 @@
 <div class="row" style="height: 100vh">
-  <div
-    class="
+  <div class="
       col-12
       d-flex
       justify-content-center
       align-items-center
       bg-secondary
       w-100
-    "
-  >
+    ">
     <form class="form-container align-items-center">
       <div class="my-4">
-        <label for="exampleInputEmail1" class="form-label login-label"
-          >Login</label
-        >
-        <p class="wrong-e-mail-or-pass float-end">Wrong Email or Password</p>
+        <label for="exampleInputEmail1" class="form-label login-label">{{'login'| translate}}</label>
+        <p class="wrong-e-mail-or-pass float-end">{{'email.error' | translate}}</p>
       </div>
       <div class="my-4">
-        <label for="exampleInputEmail1" class="form-label input-label"
-          >Email</label
-        >
-        <p class="float-end required">*Required</p>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
+        <label for="exampleInputEmail1" class="form-label input-label">{{'email' | translate }}</label>
+        <p class="float-end required">*{{'required' | translate }}</p>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
       </div>
       <div class="my-4">
-        <label for="exampleInputPassword1" class="form-label input-label"
-          >Password</label
-        >
-        <p class="float-end required">*Required</p>
-        <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-        />
+        <label for="exampleInputPassword1" class="form-label input-label">{{'password' | translate }}</label>
+        <p class="float-end required">*{{'required' | translate }}</p>
+        <input type="password" class="form-control" id="exampleInputPassword1" />
       </div>
-      <a href="" class="forgot-password">Forget Password</a>
-      <button
-        type="submit"
-        class="btn btn-primary float-end"
-        (click)="loggIn()"
-      >
-        Submit
+      <a href="" class="forgot-password">{{'forget.password' | translate}}</a>
+      <button type="submit" class="btn btn-primary float-end" (click)="loggIn()">
+        {{'submit' | translate}}
       </button>
     </form>
   </div>

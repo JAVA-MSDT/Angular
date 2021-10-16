@@ -1,6 +1,6 @@
 <div class="container mb-4">
   <div class="row courses-title">
-    <p class="courses-header-title">Courses</p>
+    <p class="courses-header-title">{{'courses' | translate}}</p>
   </div>
   <div class="row">
     <div class="col-12 d-flex justify-content-center align-items-end pt-0">
@@ -8,14 +8,14 @@
         <form class="d-flex justify-content-start align-items-start">
           <div class="">
             <label for="searchCourse" class="visually-hidden"
-              >Search Course</label
+              >{{'search.course' | translate }}</label
             >
             <input
               #searchInput
               type="test"
               class="form-control"
               id="searchCourse"
-              placeholder="Type To Search"
+              placeholder="{{'type.to.search' | translate }}"
             />
           </div>
           <div class="ms-3">
@@ -24,7 +24,7 @@
               class="btn btn-primary"
               (click)="searchCourse($event, searchInput.value)"
             >
-              Search
+              {{'search' | translate}}
             </button>
           </div>
         </form>
@@ -32,7 +32,7 @@
       <div
         class="col-6 col-m-12 d-flex justify-content-end align-items-end pe-3"
       >
-        <button type="button" class="btn btn-primary btn-lg">Add Course</button>
+        <button type="button" class="btn btn-primary btn-lg">{{'add.course' | translate}}</button>
       </div>
     </div>
     <div class="col-12">
@@ -41,7 +41,7 @@
         *ngFor="let course of courses"
       ></web-course-componenet>
       <div class="col-12 load-more-container">
-        <a href="">Load More</a>
+        <a href="">{{'load.more' | translate}}</a>
       </div>
     </div>
   </div>
