@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { CourseDetailsComponent } from './course-details.component';
+import { CoursesService } from '../courses.service';
+import { of } from 'rxjs';
 
 describe('CourseDetailsComponent', () => {
   let component: CourseDetailsComponent;
@@ -8,7 +12,20 @@ describe('CourseDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CourseDetailsComponent ]
+      declarations: [ CourseDetailsComponent ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: of({
+              id: 2,
+            }),
+          }
+        },
+          CoursesService
+        ],
+      imports: [TranslateModule.forRoot()]
+
     })
     .compileComponents();
   });
