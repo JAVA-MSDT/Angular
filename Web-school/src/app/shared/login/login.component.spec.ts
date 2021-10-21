@@ -12,8 +12,7 @@ describe('LoginComponent', () => {
   const Routerspy = jasmine.createSpyObj('Router', ['navigate']);
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let location: Location;
-  let router: Router;
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -32,8 +31,6 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    router = TestBed.get(Router);
-    location = TestBed.get(Location);
     fixture.detectChanges();
   });
 
@@ -41,9 +38,4 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   }); 
 
-  it('should Navigate To Courses', () => {
-    router.navigate(["/courses"]).then(() => {
-      expect(location.path()).toBe("/courses");
-    });
-  });
 });

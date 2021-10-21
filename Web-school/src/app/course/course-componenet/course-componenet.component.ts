@@ -5,7 +5,7 @@ import { CourseDomain } from 'src/app/domain/course-domain';
 @Component({
   selector: 'web-course-componenet',
   templateUrl: './course-componenet.component.html',
-  styleUrls: ['./course-componenet.component.sass'],
+  styleUrls: ['./course-componenet.component.scss'],
 })
 export class CourseComponenetComponent implements OnInit {
   @Input() course: CourseDomain;

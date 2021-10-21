@@ -6,7 +6,7 @@ import { CoursesService } from '../courses.service';
 @Component({
   selector: 'web-course-details',
   templateUrl: './course-details.component.html',
-  styleUrls: ['./course-details.component.sass'],
+  styleUrls: ['./course-details.component.scss'],
 })
 export class CourseDetailsComponent implements OnInit {
   constructor(
