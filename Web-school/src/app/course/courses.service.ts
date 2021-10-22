@@ -6,10 +6,11 @@ import { COURSES } from '../mocking/courses-mock';
   providedIn: 'root',
 })
 export class CoursesService {
+  courses: CourseDomain[] = COURSES;
   constructor() {}
 
   getCourses(): CourseDomain[] {
-    return COURSES;
+    return this.courses;
   }
 
   getCourseById(courseId: number): CourseDomain {
@@ -21,9 +22,18 @@ export class CoursesService {
   }
 
   getCourseOnSerach(searchArg: string): CourseDomain[] {
-    const coursesFilterd = COURSES.filter((course) =>
+    const coursesFilterd = this.getCourses().filter((course) =>
       course.title.toLowerCase().includes(searchArg.toLowerCase())
     );
     return coursesFilterd;
+  }
+
+  deleteCourseById(courseId: number): CourseDomain[] {
+    this.courses = this.courses.filter((course) => {
+      if (course.id !== courseId) {
+        return course;
+      }
+    });
+    return this.courses;
   }
 }

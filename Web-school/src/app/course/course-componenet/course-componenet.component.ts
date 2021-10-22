@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CourseDomain } from 'src/app/domain/course-domain';
 
@@ -9,6 +9,7 @@ import { CourseDomain } from 'src/app/domain/course-domain';
 })
 export class CourseComponenetComponent implements OnInit {
   @Input() course: CourseDomain;
+  @Output() deleteACourse = new EventEmitter();
   courseId: number;
   constructor(private router: Router, private route: ActivatedRoute) {}
 
@@ -24,6 +25,6 @@ export class CourseComponenetComponent implements OnInit {
   }
 
   deleteCourse(course: CourseDomain): void {
-    console.log(`Course ID Delete: ${course.id} Course title: ${course.title}`);
+    this.deleteACourse.emit(course.id);
   }
 }

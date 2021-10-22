@@ -19,4 +19,8 @@ export class CoursesComponent implements OnInit {
     this.courses = this.coursesService.getCourseOnSerach(searchArg);
     event.preventDefault();
   }
+
+  deleteCourse(courseId: number): void {
+    this.courses = this.coursesService.deleteCourseById(courseId);
+  }
 }
