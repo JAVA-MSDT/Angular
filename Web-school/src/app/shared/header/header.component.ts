@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
   isUserLoggedIn: boolean = false;
-  constructor(private translate:  TranslateService) {
+  constructor(private translate:  TranslateService, private router: Router) {
     translate.setDefaultLang('en');
   }
 
@@ -16,5 +17,12 @@ export class HeaderComponent implements OnInit {
 
   useLanguage(lang: string): void {
     this.translate.use(lang);
+  }
+
+  goToCourses(): void {
+    this.router.navigate(['/courses']);
+  }
+  goToLogin(): void {
+    this.router.navigate(['/']);
   }
 }

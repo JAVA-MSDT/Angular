@@ -8,18 +8,13 @@
 /* Header Style */
 .header-bg {
   background-color: #303240;
-  height: 60px;
+ padding: 20px 0;
+ margin: 0;
 }
 
-.logo-container {
-  width: fit-content;
-  margin-left: 80px;
-}
 .oval {
-  box-sizing: border-box;
   height: 28px;
   width: 28px;
-  margin-top: 15px;
 }
 
 .video-course {
@@ -29,13 +24,8 @@
   text-align: left;
   font-weight: 700;
   text-transform: uppercase;
-  width: fit-content;
   margin-left: 8px;
-  margin-top: 15px;
   text-decoration: none;
-}
-.login-logout {
-  margin-right: 40 px;
 }
 
 /* Login page */

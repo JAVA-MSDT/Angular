@@ -1,29 +1,73 @@
-<div class="row header-bg">
-  <div class="col-1 d-flex align-items-center text-center">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        {{'lang' | translate}}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><button class="dropdown-item" (click)="useLanguage('en')">EN</button></li>
-        <li><button class="dropdown-item" (click)="useLanguage('ru')">RU</button></li>
-      </ul>
-    </div>
+<div class="row header-bg d-flex justify-content-around align-items-center">
+  <div
+    class="
+      logo-container
+      d-flex
+      align-items-center
+      text-center
+      col-md-5 col-12
+      py-2
+    "
+  >
+    <img class="oval" src="assets/icons/play.png" alt="" />
+    <a class="video-course" (click)="goToCourses()" href="javascript:void(0);">{{ "video.course" | translate }}</a>
   </div>
-  <div class="col-5">
-    <div class="logo-container d-flex align-items-center text-center">
-      <img class="oval" src="assets/icons/play.png" alt="" />
-      <a class="video-course">{{'video.course' | translate}}</a>
-    </div>
-  </div>
-  <div class="col-4">
-    <div class="d-flex align-items-center text-center justify-content-end me-4" *ngIf="!isUserLoggedIn">
+  <div class="col-sm-5 col-12">
+    <div
+      class="
+        d-flex
+        align-items-center
+        text-center
+        justify-content-start justify-content-sm-end
+        py-2
+      "
+      *ngIf="!isUserLoggedIn"
+    >
       <img class="oval" src="assets/icons/user.png" alt="" />
-      <a class="video-course">{{'login' | translate}}</a>
+      <a class="video-course" (click)="goToLogin()" href="javascript:void(0);">{{ "login" | translate }}</a>
     </div>
-    <div class="d-flex align-items-center text-center justify-content-end me-4" *ngIf="isUserLoggedIn">
+    <div
+      class="
+        d-flex
+        align-items-center
+        text-center
+        justify-content-start justify-content-sm-end
+        py-2
+      "
+      *ngIf="isUserLoggedIn"
+    >
       <img class="oval" src="assets/icons/log-out.png" alt="" />
-      <a class="video-course">{{'logout' | translate}}</a>
+      <a class="video-course">{{ "logout" | translate }}</a>
+    </div>
+  </div>
+  <div
+    class="
+      d-flex
+      align-items-center
+      text-center
+      justify-content-start justify-content-sm-end
+      col-sm-2 col-12
+      py-2
+    "
+  >
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ "lang" | translate }}
+      </button>
+      <ul class="dropdown-menu bg-secondary text-center" aria-labelledby="dropdownMenuButton1">
+        <li>
+          <button class="dropdown-item" (click)="useLanguage('en')">EN</button>
+        </li>
+        <li>
+          <button class="dropdown-item" (click)="useLanguage('ru')">RU</button>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
