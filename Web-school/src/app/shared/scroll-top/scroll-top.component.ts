@@ -1,9 +1,7 @@
 import {
   Component,
   OnInit,
-  Inject,
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'web-scroll-top',
@@ -11,7 +9,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./scroll-top.component.scss'],
 })
 export class ScrollTopComponent implements OnInit {
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor() {}
 
 
   ngOnInit(): void {}
@@ -19,9 +17,5 @@ export class ScrollTopComponent implements OnInit {
   toTop(): void {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-  }
-
-  detectScroll(): void {
-    
   }
 }

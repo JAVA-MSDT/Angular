@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { ScrollTopComponent } from './scroll-top.component';
 
@@ -8,7 +9,8 @@ describe('ScrollTopComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScrollTopComponent ]
+      declarations: [ ScrollTopComponent ],
+      imports: [TranslateModule.forRoot()],
     })
     .compileComponents();
   });
