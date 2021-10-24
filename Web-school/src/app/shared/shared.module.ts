@@ -8,6 +8,7 @@ import { HttpClientModule, HttpClient } from  '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 // loader module
 export  function  HttpLoaderFactory(http:  HttpClient) {
@@ -15,7 +16,7 @@ export  function  HttpLoaderFactory(http:  HttpClient) {
 }
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, LoginComponent],
+  declarations: [HeaderComponent, FooterComponent, LoginComponent, ScrollTopComponent],
   imports: [
     CommonModule, 
     HttpClientModule, 
@@ -27,6 +28,6 @@ export  function  HttpLoaderFactory(http:  HttpClient) {
       }
     })],
     providers: [TranslateService],
-  exports: [HeaderComponent, FooterComponent, LoginComponent, TranslateModule],
+  exports: [HeaderComponent, FooterComponent, LoginComponent, TranslateModule, ScrollTopComponent],
 })
 export class SharedModule {}

@@ -1,0 +1,26 @@
+/* Scroll Top Button */
+html{
+    scroll-behavior: smooth;
+  }
+  
+  .go-to-top {
+    display: block;
+    padding: 10px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+    opacity: .5;
+  }
+  
+  .go-to-top:hover {
+    background: #555;
+    opacity: 1;
+  }

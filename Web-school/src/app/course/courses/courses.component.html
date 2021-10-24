@@ -1,40 +1,50 @@
-<div class="container mb-4">
-  <div class="row courses-title">
+<div class="container mb-3">
+  <div class="row courses-title py-2">
     <p class="courses-header-title">{{ "courses" | translate }}</p>
   </div>
   <div class="row">
-    <div class="col-12 d-flex justify-content-center align-items-end pt-0">
-      <div class="col-6 col-m-12 ps-3">
-        <form class="d-flex justify-content-start align-items-start">
-          <div class="">
-            <label for="searchCourse" class="visually-hidden">{{
-              "search.course" | translate
-            }}</label>
-            <input
-              #searchInput
-              type="test"
-              class="form-control"
-              id="searchCourse"
-              placeholder="{{ 'type.to.search' | translate }}"
-            />
-          </div>
-          <div class="ms-3">
-            <button
-              type="submit"
-              class="btn btn-primary"
-              (click)="searchCourse($event, searchInput.value)"
-            >
-              {{ "search" | translate }}
-            </button>
-          </div>
-        </form>
-      </div>
-      <div
-        class="col-6 col-m-12 d-flex justify-content-end align-items-end pe-3"
-      >
-        <button type="button" class="btn btn-primary btn-lg">
-          {{ "add.course" | translate }}
-        </button>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12 col-sm-6 d-flex justify-content-start align-items-center">
+          <form class="d-flex justify-content-start align-items-center py-1">
+            <div class="">
+              <label for="searchCourse" class="visually-hidden">{{
+                "search.course" | translate
+              }}</label>
+              <input
+                #searchInput
+                type="test"
+                class="form-control"
+                id="searchCourse"
+                placeholder="{{ 'type.to.search' | translate }}"
+              />
+            </div>
+            <div class="ms-3">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                (click)="searchCourse($event, searchInput.value)"
+              >
+                {{ "search" | translate }}
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div
+          class="
+            col-12 col-sm-6
+            d-flex
+            justify-content-start
+            justify-content-sm-end
+            align-items-end
+            py-1
+          "
+        >
+          <button type="button" class="btn btn-primary btn-lg">
+            {{ "add.course" | translate }}
+          </button>
+        </div>
       </div>
     </div>
     <div class="col-12">

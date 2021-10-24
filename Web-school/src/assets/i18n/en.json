@@ -16,6 +16,8 @@
   "edit": "Edit",
   "delete": "Delete",
   "search.course": "Search Course",
-  "load.more" : "Load More"
+  "load.more" : "Load More",
+  "go.to.top": "Top",
+  "back.to.courses": "Back To courses"
 
 }

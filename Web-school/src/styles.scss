@@ -8,8 +8,8 @@
 /* Header Style */
 .header-bg {
   background-color: #303240;
- padding: 20px 0;
- margin: 0;
+  padding: 20px 0;
+  margin: 0;
 }
 
 .oval {
@@ -99,28 +99,14 @@
   margin: 0;
 }
 
-/* Courses Page */
-.courses-title {
-  height: 64px;
-  width: 100%;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  text-align: left;
-}
-
 .courses-header-title {
   color: #464a5a;
   font-family: "SourceSansPro-Bold";
-  text-align: left;
   font-weight: 700;
+  font-size: x-large;
   margin: 0;
 }
 
-.courses-content {
-  height: 75vh;
-  border: 1px solid black;
-}
 .load-more-container {
   border-radius: 6px;
   display: flex;
@@ -128,8 +114,7 @@
   align-items: center;
   box-shadow: 0 1px 2px 0 rgba(29, 30, 38, 0.1),
     0 2px 10px 0 rgba(29, 30, 38, 0.15);
-  height: 36px;
-  width: 100%;
+  padding: 8px 0;
 }
 
 /* Course Detail Component */
@@ -138,6 +123,6 @@
   box-shadow: 0 1px 2px 0 rgba(29, 30, 38, 0.1),
     0 2px 10px 0 rgba(29, 30, 38, 0.15);
   width: 100%;
-  padding: 30px;
-  margin: 40px 0px 30px 0px;
+  padding: 20px;
+  margin: 20px 0;
 }

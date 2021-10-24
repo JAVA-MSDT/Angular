@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { CoursesService } from '../courses.service';
 
@@ -10,6 +10,7 @@ import { CoursesService } from '../courses.service';
 })
 export class CourseDetailsComponent implements OnInit {
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private courseService: CoursesService
   ) {}
@@ -26,5 +27,9 @@ export class CourseDetailsComponent implements OnInit {
       this.courseId = id;
     });
     this.course = this.courseService.getCourseById(this.courseId);
+  }
+
+  backToCourses(): void {
+    this.router.navigate(['/courses']);
   }
 }
