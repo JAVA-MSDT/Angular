@@ -1,21 +1,21 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { ActivatedRoute, Router, Routes } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CourseDetailsComponent } from './course-details.component';
 import { CoursesService } from '../courses.service';
-import { of } from 'rxjs';
 import { CourseModule } from '../course.module';
-import { CoursesComponent } from '../courses/courses.component';
+import { routes } from '../courses-routing.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
+import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
 
 describe('CourseDetailsComponent', () => {
   let component: CourseDetailsComponent;
   let fixture: ComponentFixture<CourseDetailsComponent>;
   let router: Router;
   let location: Location;
-  const routes: Routes = [{path: 'courses', component: CoursesComponent}]
+  let activatedRouteStub: ActivatedRouteStub; 
   let expectedCourse: CourseModule =   {
     id: 1,
     title: 'Environmental Tech',
@@ -25,16 +25,13 @@ describe('CourseDetailsComponent', () => {
    };
    
   beforeEach(async () => {
+    activatedRouteStub = new ActivatedRouteStub(expectedCourse);
      TestBed.configureTestingModule({
       declarations: [ CourseDetailsComponent ],
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: {
-            paramMap: of({
-              id: 2,
-            }),
-          }
+          useValue: activatedRouteStub
         },
           CoursesService
         ],
