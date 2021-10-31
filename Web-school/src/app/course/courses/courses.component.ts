@@ -9,6 +9,7 @@ import { CoursesService } from '../courses.service';
 })
 export class CoursesComponent implements OnInit {
   courses: CourseDomain[] = [];
+  filterText: string;
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
@@ -18,6 +19,10 @@ export class CoursesComponent implements OnInit {
   searchCourse(event, searchArg: string): void {
     this.courses = this.coursesService.getCourseOnSerach(searchArg);
     event.preventDefault();
+  }
+
+  searchCourseOnKeyup(event): void {
+    this.filterText = event.target.value;
   }
 
   deleteCourse(courseId: number): void {

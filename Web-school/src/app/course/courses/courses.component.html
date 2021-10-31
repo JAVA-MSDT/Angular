@@ -5,7 +5,14 @@
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <div class="col-12 col-sm-6 d-flex justify-content-start align-items-center">
+        <div
+          class="
+            col-12 col-sm-6
+            d-flex
+            justify-content-start
+            align-items-center
+          "
+        >
           <form class="d-flex justify-content-start align-items-center py-1">
             <div class="">
               <label for="searchCourse" class="visually-hidden">{{
@@ -17,6 +24,7 @@
                 class="form-control"
                 id="searchCourse"
                 placeholder="{{ 'type.to.search' | translate }}"
+                (keyup)="searchCourseOnKeyup($event)"
               />
             </div>
             <div class="ms-3">
@@ -35,8 +43,7 @@
           class="
             col-12 col-sm-6
             d-flex
-            justify-content-start
-            justify-content-sm-end
+            justify-content-start justify-content-sm-end
             align-items-end
             py-1
           "
@@ -51,7 +58,8 @@
       <web-course-componenet
         (deleteACourse)="deleteCourse($event)"
         [course]="course"
-        *ngFor="let course of courses"
+        *ngFor="let course of courses | filterPipe: filterText"
+        [titleFilter]="course.title | highlightSearch: filterText"
       ></web-course-componenet>
       <div class="col-12 load-more-container">
         <a href="">{{ "load.more" | translate }}</a>

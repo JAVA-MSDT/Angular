@@ -9,6 +9,7 @@ import { CourseDomain } from 'src/app/domain/course-domain';
 })
 export class CourseComponenetComponent implements OnInit {
   @Input() course: CourseDomain;
+  @Input() titleFilter: string;
   @Output() deleteACourse = new EventEmitter();
   courseId: number;
   constructor(private router: Router, private route: ActivatedRoute) {}
