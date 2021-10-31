@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import { FilterPipe } from '../pipes/filterPipe.pipe';
 import { HighlightSearchPipe } from '../pipes/highlight-search.pipe';
+import { CourseBorderStyleDirective } from '../directives/course-border-style.directive';
+import { DurationFormatterPipe } from '../pipes/duration-formatter.pipe';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,6 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ScrollTopComponent,
     FilterPipe,
     HighlightSearchPipe,
+    CourseBorderStyleDirective,
+    DurationFormatterPipe,
   ],
   imports: [
     CommonModule,
@@ -50,6 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ScrollTopComponent,
     FilterPipe,
     HighlightSearchPipe,
+    CourseBorderStyleDirective,
+    DurationFormatterPipe,
   ],
 })
 export class SharedModule {}

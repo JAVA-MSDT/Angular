@@ -13,7 +13,7 @@
         align-items-center
       "
     >
-      <span class="">{{ course.duration }} min </span>
+      <span class="">{{ course.duration | durationFormatter}}</span>
       <span class="ms-3">{{ course.creatingDate }}</span>
     </div>
   </div>
