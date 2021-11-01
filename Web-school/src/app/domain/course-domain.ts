@@ -3,5 +3,6 @@ export interface CourseDomain {
   title: string;
   creatingDate: string; //Date;
   duration: number;
+  topRated: boolean,
   description: string;
 }

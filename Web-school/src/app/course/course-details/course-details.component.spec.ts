@@ -21,6 +21,7 @@ describe('CourseDetailsComponent', () => {
     title: 'Environmental Tech',
     creatingDate: '2020-12-06',
     duration: 204,
+    topRated: true,
     description: 'Description' 
    };
    

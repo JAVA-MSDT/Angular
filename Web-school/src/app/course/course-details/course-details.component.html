@@ -1,9 +1,16 @@
-<div class="container course-component-container">
+<div
+  class="container course-component-container"
+  [webCourseBorderStyle]="course.creatingDate"
+  [ngClass]="{ topRatedCourse: course.topRated }"
+>
   <div class="row">
     <div
       class="col-12 col-sm-7 d-flex justify-content-start align-items-center"
     >
-      <h3>{{ course.title }}</h3>
+      <h3>{{ course.title | uppercase }}</h3>
+      <span *ngIf="course.topRated"
+        ><img class="oval ms-2" src="assets/icons/TopRatedStar.png" alt=""
+      /></span>
     </div>
     <div
       class="
