@@ -10,6 +10,7 @@ import { CoursesService } from '../courses.service';
 export class CoursesComponent implements OnInit {
   courses: CourseDomain[] = [];
   filterText: string;
+  orderByOption: string;
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
@@ -27,5 +28,9 @@ export class CoursesComponent implements OnInit {
 
   deleteCourse(courseId: number): void {
     this.courses = this.coursesService.deleteCourseById(courseId);
+  }
+
+  orderBy(option: string): void {
+    this.orderByOption = option;
   }
 }

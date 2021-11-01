@@ -19,6 +19,7 @@
   "load.more" : "Load More",
   "go.to.top": "Top",
   "back.to.courses": "Back To courses",
-  "no.data.found": "No Data Found, Feel free to Add a new course"
+  "no.data.found": "No Data Found, Feel free to Add a new course",
+  "order.by": "Order By"
 
 }

@@ -17,6 +17,7 @@ import { FilterPipe } from '../pipes/filterPipe.pipe';
 import { HighlightSearchPipe } from '../pipes/highlight-search.pipe';
 import { CourseBorderStyleDirective } from '../directives/course-border-style.directive';
 import { DurationFormatterPipe } from '../pipes/duration-formatter.pipe';
+import { OrderByPipe } from '../pipes/order-by.pipe';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HighlightSearchPipe,
     CourseBorderStyleDirective,
     DurationFormatterPipe,
+    OrderByPipe,
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HighlightSearchPipe,
     CourseBorderStyleDirective,
     DurationFormatterPipe,
+    OrderByPipe,
   ],
 })
 export class SharedModule {}
