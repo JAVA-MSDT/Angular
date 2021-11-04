@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { CoursesService } from '../courses.service';
 
@@ -14,7 +14,7 @@ export class CoursesComponent implements OnInit {
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
-    this.courses = this.coursesService.getCourses();
+    this.coursesService.getCourses().subscribe(courses =>  this.courses = courses)   
   }
 
   searchCourse(event, searchArg: string): void {

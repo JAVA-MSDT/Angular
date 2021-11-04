@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { CourseDomain } from '../domain/course-domain';
 import { COURSES } from '../mocking/courses-mock';
 
@@ -9,12 +10,12 @@ export class CoursesService {
   courses: CourseDomain[] = COURSES;
   constructor() {}
 
-  getCourses(): CourseDomain[] {
-    return this.courses;
+  getCourses(): Observable<CourseDomain[]> {
+    return of(this.courses);
   }
 
   getCourseById(courseId: number): CourseDomain {
-    return this.getCourses().find((course) => {
+    return this.courses.find((course) => {
       if (course.id === courseId) {
         return course;
       }
@@ -22,7 +23,7 @@ export class CoursesService {
   }
 
   getCourseOnSerach(searchArg: string): CourseDomain[] {
-    const coursesFilterd = this.getCourses().filter((course) =>
+    const coursesFilterd = this.courses.filter((course) =>
       course.title.toLowerCase().includes(searchArg.toLowerCase())
     );
     return coursesFilterd;

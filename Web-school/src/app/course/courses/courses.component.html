@@ -73,15 +73,19 @@
         </div>
       </div>
     </div>
-    <div class="col-12">
+    
+    <div class="col-12" *ngIf="(courses | orderBy:orderByOption | filterPipe: filterText) as result">
       <web-course-componenet
         (deleteACourse)="deleteCourse($event)"
         [course]="course"
-        *ngFor="let course of courses | orderBy:orderByOption | filterPipe: filterText"
+        *ngFor="let course of result"
         [titleFilter]="course.title | highlightSearch: filterText"
       ></web-course-componenet>
-      <div class="col-12 load-more-container">
+      <div class="col-12 load-more-container" *ngIf="result?.length">
         <a href="">{{ "load.more" | translate }}</a>
+      </div>
+      <div class="col-12 noResultfound" *ngIf="result?.length === 0">
+        <p class="m-0">{{ "no.data.found" | translate }}</p>
       </div>
     </div>
   </div>
