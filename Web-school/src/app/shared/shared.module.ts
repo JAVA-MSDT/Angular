@@ -18,6 +18,8 @@ import { HighlightSearchPipe } from '../pipes/highlight-search.pipe';
 import { CourseBorderStyleDirective } from '../directives/course-border-style.directive';
 import { DurationFormatterPipe } from '../pipes/duration-formatter.pipe';
 import { OrderByPipe } from '../pipes/order-by.pipe';
+import { RemoveComponent } from './modals/remove/remove.component';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,10 +37,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseBorderStyleDirective,
     DurationFormatterPipe,
     OrderByPipe,
+    RemoveComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
+    NgbModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -47,7 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
   ],
-  providers: [TranslateService],
+  providers: [TranslateService, NgbActiveModal],
   exports: [
     HeaderComponent,
     FooterComponent,
@@ -59,6 +63,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseBorderStyleDirective,
     DurationFormatterPipe,
     OrderByPipe,
+    RemoveComponent,
+    NgbModule,
   ],
 })
 export class SharedModule {}

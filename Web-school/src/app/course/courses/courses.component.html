@@ -73,7 +73,6 @@
         </div>
       </div>
     </div>
-    
     <div class="col-12" *ngIf="(courses | orderBy:orderByOption | filterPipe: filterText) as result">
       <web-course-componenet
         (deleteACourse)="deleteCourse($event)"
