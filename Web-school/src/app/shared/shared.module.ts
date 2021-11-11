@@ -20,6 +20,7 @@ import { DurationFormatterPipe } from '../pipes/duration-formatter.pipe';
 import { OrderByPipe } from '../pipes/order-by.pipe';
 import { RemoveComponent } from './modals/remove/remove.component';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -50,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    ReactiveFormsModule,
   ],
   providers: [TranslateService, NgbActiveModal],
   exports: [

@@ -1,9 +1,5 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import {
-  ModalDismissReasons,
-  NgbModal,
-  NgbModalRef,
-} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { RemoveComponent } from 'src/app/shared/modals/remove/remove.component';
@@ -14,7 +10,7 @@ import { CoursesService } from '../courses.service';
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss'],
 })
-export class CoursesComponent implements OnInit, OnDestroy {
+export class CoursesComponent implements OnInit {
   courses: CourseDomain[] = [];
   deleteCourseModalRef: NgbModalRef;
   filterText: string;
@@ -34,9 +30,6 @@ export class CoursesComponent implements OnInit, OnDestroy {
     private modal: NgbModal,
     private translateService: TranslateService
   ) {}
-  ngOnDestroy(): void {
-    this.deleteCourseModalRef.close();
-  }
 
   ngOnInit(): void {
     this.coursesService

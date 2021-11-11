@@ -1,7 +1,7 @@
 export interface CourseDomain {
   id: number;
   title: string;
-  creatingDate: string; //Date;
+  creatingDate: string;
   duration: number;
   topRated: boolean,
   description: string;
