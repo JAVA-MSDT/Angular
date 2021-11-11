@@ -22,16 +22,13 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const url: string = state.url;
-    console.log(url);
-    return this.checkLogin(url);
+    return this.checkLogin();
   }
 
-  checkLogin(url: string): boolean {
+  checkLogin(): boolean {
     if (this.tokenService.getToken()) {
       return true;
     }
-    console.log(url);
-    this.router.navigate(['/']).then((_) => false);
+    this.router.navigate(['/']);
   }
 }

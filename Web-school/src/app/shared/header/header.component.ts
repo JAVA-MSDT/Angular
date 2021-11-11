@@ -1,21 +1,16 @@
-import {
-  Component,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { USER_LOGIN_STATUS } from 'src/app/auth/services/token.service';
 
 @Component({
   selector: 'web-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, OnChanges {
-  isUserLoggedIn: boolean = localStorage.getItem('isUserIn') === 'true';
-  message = '';
+export class HeaderComponent implements OnInit {
+  isUserLoggedIn: boolean;
   constructor(
     private translate: TranslateService,
     private router: Router,
@@ -23,12 +18,12 @@ export class HeaderComponent implements OnInit, OnChanges {
   ) {
     translate.setDefaultLang('en');
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    this.isUserLoggedIn = localStorage.getItem('isUserIn') === 'true';
-    console.log('Changesssss');
+  ngDoCheck(): void {
+    this.isUserLoggedIn = localStorage.getItem(USER_LOGIN_STATUS) === 'true';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   useLanguage(lang: string): void {
     this.translate.use(lang);
