@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { CoursesService } from '../courses.service';
 
@@ -30,6 +31,6 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   backToCourses(): void {
-    this.router.navigate(['/courses']);
+    this.router.navigate([ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage]);
   }
 }

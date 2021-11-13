@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AUTH_CONST } from 'src/app/appConfig/auth-const';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { USER_LOGIN_STATUS } from 'src/app/auth/services/token.service';
 
 @Component({
   selector: 'web-header',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
     translate.setDefaultLang('en');
   }
   ngDoCheck(): void {
-    this.isUserLoggedIn = localStorage.getItem(USER_LOGIN_STATUS) === 'true';
+    this.isUserLoggedIn = localStorage.getItem(AUTH_CONST.is_user_in) === 'true';
   }
 
   ngOnInit(): void {
@@ -30,11 +31,11 @@ export class HeaderComponent implements OnInit {
   }
 
   goToCourses(): void {
-    this.router.navigate(['/courses']);
+    this.router.navigate([ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage]);
   }
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/']);
+    this.router.navigate([ROUTER_PATH.homePage]);
   }
 }

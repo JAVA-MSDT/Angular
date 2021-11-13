@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CourseDetailsComponent } from './course-details.component';
 import { CoursesService } from '../courses.service';
 import { CourseModule } from '../course.module';
-import { routes } from '../courses-routing.module';
+import { routes } from '../../app-routing.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Location } from '@angular/common';
 import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 
 describe('CourseDetailsComponent', () => {
   let component: CourseDetailsComponent;
@@ -56,8 +57,8 @@ describe('CourseDetailsComponent', () => {
   });
 
   it('Should navigate to Courses page when backToCourses called', fakeAsync(() => {
-    router.navigate(['courses']);
+    router.navigate([ROUTER_PATH.coursesPage]);
     tick();
-    expect(location.path()).toBe('/courses');
+    expect(location.path()).toBe(ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage);
   }))
 });

@@ -8,6 +8,7 @@ import {
 import { Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CoursesComponent } from 'src/app/course/courses/courses.component';
 import { LoginComponent } from '../login/login.component';
 
@@ -19,8 +20,8 @@ describe('HeaderComponent', () => {
   let router: Router;
   let location: Location;
   const routes: Routes = [
-    { path: '', component: LoginComponent },
-    { path: 'courses', component: CoursesComponent },
+    { path: ROUTER_PATH.loginPage, component: LoginComponent },
+    { path: ROUTER_PATH.coursesPage, component: CoursesComponent },
   ];
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -46,14 +47,14 @@ describe('HeaderComponent', () => {
   });
 
   it(`should navigate to Courses page wehn we call goToCourses()`, fakeAsync(() => {
-    router.navigate(['courses']);
+    router.navigate([ROUTER_PATH.coursesPage]);
     tick();
-    expect(location.path()).toBe('/courses');
+    expect(location.path()).toBe(ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage);
   }));
 
   it(`should navigate to Login page wehn we call goToLogin()`, fakeAsync(() => {
-    router.navigate(['/']);
+    router.navigate([ROUTER_PATH.contextPath]);
     tick();
-    expect(location.path()).toBe('/');
+    expect(location.path()).toBe(ROUTER_PATH.contextPath);
   }));
 });

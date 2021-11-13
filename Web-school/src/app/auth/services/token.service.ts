@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export const ACCESS_TOKEN = 'access_token';
-export const REFRESH_TOKEN = 'refresh_token';
-export const USER_LOGIN_STATUS = 'isUserIn';
+import { AUTH_CONST } from 'src/app/appConfig/auth-const';
 
 @Injectable({
   providedIn: 'root',
@@ -11,26 +8,26 @@ export class TokenService {
   constructor() {}
 
   getToken(): string {
-    return localStorage.getItem(ACCESS_TOKEN);
+    return localStorage.getItem(AUTH_CONST.access_token);
   }
 
   saveToken(token): void {
-    localStorage.setItem(ACCESS_TOKEN, token);
+    localStorage.setItem(AUTH_CONST.access_token, token);
   }
 
   removeToken(): void {
-    localStorage.removeItem(ACCESS_TOKEN);
+    localStorage.removeItem(AUTH_CONST.access_token);
   }
 
   setUserLoginStatus(userLoginStatus): void {
-    localStorage.setItem(USER_LOGIN_STATUS, userLoginStatus);
+    localStorage.setItem(AUTH_CONST.is_user_in, userLoginStatus);
   }
 
   removeUserLoginStatus(): void {
-    localStorage.removeItem(USER_LOGIN_STATUS);
+    localStorage.removeItem(AUTH_CONST.is_user_in);
   }
 
   getUserLoginStatus(): string {
-    return localStorage.getItem(USER_LOGIN_STATUS);
+    return localStorage.getItem(AUTH_CONST.is_user_in);
   }
 }

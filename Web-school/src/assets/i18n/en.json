@@ -24,7 +24,11 @@
   "no": "No",
   "yes": "Yes",
   "remove.course": "Remove Course",
-  "delete.course.message": "Do you really want to delete this course?"
+  "delete.course.message": "Do you really want to delete this course?",
+  "welcome.to.home.page": "Welcome To Video Courses Portal",
+  "log.in.message": "Log In To Access your courses",
+  "back.to.home": "Back To Home Page",
+  "page.not.found": "Page You are looking for not found, sorry...."
 
 
 }

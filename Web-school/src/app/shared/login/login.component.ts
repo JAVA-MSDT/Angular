@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
     let isIn = this.authService.login(this.loginForm.value);
     if (isIn) {
       this.isLoadingResults = false;
-      this.router.navigate(['/courses']);
+      this.router.navigate([ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage]);
     } else {
       this.credintialError = true;
     }

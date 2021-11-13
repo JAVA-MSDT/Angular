@@ -7,6 +7,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { TokenService } from '../services/token.service';
 
 @Injectable({
@@ -29,6 +30,6 @@ export class AuthGuard implements CanActivate {
     if (this.tokenService.getToken()) {
       return true;
     }
-    this.router.navigate(['/']);
+    this.router.navigate([ROUTER_PATH.homePage]);
   }
 }

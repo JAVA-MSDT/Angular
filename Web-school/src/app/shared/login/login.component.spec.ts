@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { Location } from "@angular/common";
 import { RouterTestingModule } from "@angular/router/testing";
 import { TranslateModule } from '@ngx-translate/core';
 
 import { LoginComponent } from './login.component';
 import { CoursesComponent } from 'src/app/course/courses/courses.component';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 
 describe('LoginComponent', () => {
-  const courses = { path: 'courses', component: CoursesComponent };
+  const courses = { path: ROUTER_PATH.coursesPage, component: CoursesComponent };
   const Routerspy = jasmine.createSpyObj('Router', ['navigate']);
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;

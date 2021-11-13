@@ -1,0 +1,27 @@
+<div
+  class="
+    homeContainer
+    row
+    d-flex
+    justify-content-center
+    align-items-center
+    text-center
+  "
+>
+  <div class="w-75 d-flex justify-content-center align-items-center row">
+    <div class="col-12">
+      <h1>{{ "welcome.to.home.page" | translate }}</h1>
+      <h2 class="text-light">{{ "log.in.message" | translate }}</h2>
+    </div>
+
+    <div class="w-50 col-12">
+      <a
+        class="btn btn-success btn-lg w-75"
+        type="button"
+        (click)="logIn()"
+        href="javascript:void(0);"
+        >{{ "login" | translate }}</a
+      >
+    </div>
+  </div>
+</div>

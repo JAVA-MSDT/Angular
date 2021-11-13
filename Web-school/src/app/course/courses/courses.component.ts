@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { RemoveComponent } from 'src/app/shared/modals/remove/remove.component';
 import { CoursesService } from '../courses.service';
@@ -16,7 +17,7 @@ export class CoursesComponent implements OnInit {
   filterText: string;
   orderByOption: string;
   courseIdToDelete;
-  closeResult: string = '';
+  closeResult: string = ROUTER_PATH.loginPage;
 
   modalTitle: string = 'remove.course';
   closeTitle: string = 'no';
