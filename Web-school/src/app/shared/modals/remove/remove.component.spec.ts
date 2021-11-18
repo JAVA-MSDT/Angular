@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { RemoveComponent } from './remove.component';
 
@@ -8,7 +9,8 @@ describe('RemoveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RemoveComponent ]
+      declarations: [ RemoveComponent ],
+      providers: [NgbActiveModal]
     })
     .compileComponents();
   });

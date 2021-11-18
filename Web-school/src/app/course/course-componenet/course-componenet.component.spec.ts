@@ -6,8 +6,9 @@ import { CourseDomain } from 'src/app/domain/course-domain';
 
 import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
 import { CourseComponenetComponent } from './course-componenet.component';
-import { routes } from '../courses-routing.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { routes } from 'src/app/app-routing.module';
+import { DurationFormatterPipe } from 'src/app/pipes/duration-formatter.pipe';
 
 describe('CourseComponenetComponent', () => {
   let component: CourseComponenetComponent;
@@ -27,7 +28,7 @@ describe('CourseComponenetComponent', () => {
   beforeEach(async () => {
     activatedRouteStub = new ActivatedRouteStub(expectedCourse);
       TestBed.configureTestingModule({
-      declarations: [ CourseComponenetComponent ],
+      declarations: [ CourseComponenetComponent, DurationFormatterPipe ],
       providers: [
         {
           provide: ActivatedRoute,

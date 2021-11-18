@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LoginComponent } from './login.component';
 import { CoursesComponent } from 'src/app/course/courses/courses.component';
 import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
+import { FormBuilder } from '@angular/forms';
 
 describe('LoginComponent', () => {
   const courses = { path: ROUTER_PATH.coursesPage, component: CoursesComponent };
@@ -22,6 +23,7 @@ describe('LoginComponent', () => {
           provide: Router,
           useValue: Routerspy,
         },
+        FormBuilder
       ], 
       imports: [TranslateModule.forRoot(), RouterTestingModule.withRoutes([courses])]
     })

@@ -57,7 +57,7 @@ describe('CourseDetailsComponent', () => {
   });
 
   it('Should navigate to Courses page when backToCourses called', fakeAsync(() => {
-    router.navigate([ROUTER_PATH.coursesPage]);
+    router.navigate([ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage]);
     tick();
     expect(location.path()).toBe(ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage);
   }))
