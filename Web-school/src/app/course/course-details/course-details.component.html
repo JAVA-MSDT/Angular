@@ -1,37 +1,76 @@
 <div
   class="container course-component-container"
-  [webCourseBorderStyle]="course.creatingDate"
-  [ngClass]="{ topRatedCourse: course.topRated }"
+  [webCourseBorderStyle]="course?.creatingDate"
+  [ngClass]="{ topRatedCourse: course?.topRated }"
 >
-  <div class="row">
-    <div
-      class="col-12 col-sm-7 d-flex justify-content-start align-items-center"
-    >
-      <h3>{{ course.title | uppercase }}</h3>
-      <span *ngIf="course.topRated"
-        ><img class="oval ms-2" src="assets/icons/TopRatedStar.png" alt=""
-      /></span>
+<h2 *ngIf="isEdit">{{ "edit.course" | translate }}</h2>
+<h2 *ngIf="!isEdit">{{ "add.course" | translate }}</h2>
+  <form
+    class="align-items-center"
+    [formGroup]="courseForm"
+    (ngSubmit)="onFormSubmit()"
+  >
+    <div class="row p-4">
+      <div class="col-12 my-2">
+        <label for="courseTitle" class="form-label input-label">{{
+          "course.title" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <input
+          type="text"
+          class="form-control"
+          id="courseTitle"
+          formControlName="courseTitle"
+        />
+      </div>
+      <div class="col-12 my-2">
+        <label for="courseDescription" class="form-label input-label">{{
+          "course.description" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <textarea
+          rows="5"
+          cols="33"
+          class="form-control"
+          id="courseDescription"
+          formControlName="courseDescription"
+        ></textarea>
+      </div>
+      <div class="col-12 my-2">
+        <label for="courseDuration" class="form-label input-label">{{
+          "course.duration" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <input
+          type="number"
+          class="form-control"
+          id="courseDuration"
+          formControlName="courseDuration"
+        />
+      </div>
+      <div class="col-12 my-2">
+        <label for="courseCreatingDate" class="form-label input-label">{{
+          "course.creating.date" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <input
+          type="date"
+          class="form-control"
+          id="courseCreatingDate"
+          formControlName="courseCreatingDate"
+        />
+      </div>
+      <div class="col-12 my-2 d-flex justify-content-end align-items-center">
+        <button type="submit" class="btn btn-secondary me-3">
+          {{ "cancel" | translate }}
+        </button>
+        <button type="submit" class="btn btn-success">
+          {{ "submit" | translate }}
+        </button>
+      </div>
     </div>
-    <div
-      class="
-        col-12 col-sm-5
-        d-flex
-        justify-content-sm-center justify-content-start
-        align-items-center
-      "
-    >
-      <span class="">{{ course.duration }} min </span>
-      <span class="ms-3">{{ course.creatingDate }}</span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 d-flex justify-content-start align-items-center p-3">
-      <p class="m-0">
-        {{ course.description }}
-      </p>
-    </div>
-  </div>
-  <a (click)="backToCourses()" href="javascript:void(0);">{{
-    "back.to.courses" | translate
-  }}</a>
+    <a (click)="backToCourses()" href="javascript:void(0);">{{
+      "back.to.courses" | translate
+    }}</a>
+  </form>
 </div>

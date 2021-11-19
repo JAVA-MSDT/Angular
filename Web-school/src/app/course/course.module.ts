@@ -4,10 +4,11 @@ import { CourseComponenetComponent } from './course-componenet/course-componenet
 import { SharedModule } from '../shared/shared.module';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CourseComponenetComponent, CoursesComponent, CourseDetailsComponent],
-  imports: [CommonModule, SharedModule, ],
+  imports: [CommonModule, SharedModule, ReactiveFormsModule],
   exports: [CourseComponenetComponent, CoursesComponent, CourseDetailsComponent],
 })
 export class CourseModule {}

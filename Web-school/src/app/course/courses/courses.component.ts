@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
+import { ShareDataService } from 'src/app/services/share-data.service';
 import { RemoveComponent } from 'src/app/shared/modals/remove/remove.component';
 import { CoursesService } from '../courses.service';
 
@@ -29,7 +31,9 @@ export class CoursesComponent implements OnInit {
   constructor(
     private coursesService: CoursesService,
     private modal: NgbModal,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private router: Router,
+    private shareDataService: ShareDataService
   ) {}
 
   ngOnInit(): void {
@@ -106,5 +110,10 @@ export class CoursesComponent implements OnInit {
         this.courseIdToDelete
       );
     }
+  }
+
+  addCourse(): void {
+    this.shareDataService.setIsEdit(false);
+    this.router.navigate([`${ROUTER_PATH.coursesPage} ${ROUTER_PATH.contextPath}  ${ROUTER_PATH.courseAdd}`]);
   }
 }

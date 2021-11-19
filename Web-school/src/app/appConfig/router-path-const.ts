@@ -3,6 +3,7 @@ export const ROUTER_PATH = {
     homePage: '',
     loginPage: 'login',
     coursesPage: 'courses',
+    courseAdd: 'add',
     invalidPage: '**'
 
 };

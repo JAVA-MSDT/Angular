@@ -4,6 +4,7 @@
   "required": "Required",
   "password": "Password",
   "submit": "Submit",
+  "cancel": "Cancel",
   "forget.password": "Forget Password",
   "video.course": "VIDEO COURSES",
   "login": "Login",
@@ -13,6 +14,7 @@
   "search": "Search",
   "type.to.search": "Type To Search",
   "add.course": "Add Course",
+  "edit.course": "Edit Course",
   "edit": "Edit",
   "delete": "Delete",
   "search.course": "Search Course",
@@ -28,7 +30,11 @@
   "welcome.to.home.page": "Welcome To Video Courses Portal",
   "log.in.message": "Log In To Access your courses",
   "back.to.home": "Back To Home Page",
-  "page.not.found": "Page You are looking for not found, sorry...."
+  "page.not.found": "Page You are looking for not found, sorry....",
+  "course.title": "Title",
+  "course.description": "Description",
+  "course.duration": "Duration",
+  "course.creating.date": "Creating Date"
 
 
 }

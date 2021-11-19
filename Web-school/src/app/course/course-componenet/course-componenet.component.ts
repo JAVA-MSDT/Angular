@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CourseDomain } from 'src/app/domain/course-domain';
+import { ShareDataService } from 'src/app/services/share-data.service';
 
 @Component({
   selector: 'web-course-componenet',
@@ -12,16 +13,27 @@ export class CourseComponenetComponent implements OnInit {
   @Input() titleFilter: string;
   @Output() deleteACourse = new EventEmitter();
   courseId: number;
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  isEdit: boolean;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private shareDataService: ShareDataService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
       let id = parseInt(param.get('id'));
       this.courseId = id;
     });
+    this.shareDataService.isEditControl.subscribe(
+      (value) => (this.isEdit = value)
+    );
+
+    console.log(this.isEdit);
   }
 
   editCourse(course: CourseDomain) {
+    this.shareDataService.setIsEdit(true);
     this.router.navigate([course.id], { relativeTo: this.route });
   }
 

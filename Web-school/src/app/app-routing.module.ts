@@ -21,6 +21,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     component: CourseDetailsComponent,
   },
+  {
+    path: `${ROUTER_PATH.coursesPage} ${ROUTER_PATH.contextPath}  ${ROUTER_PATH.courseAdd}`,
+    canActivate: [AuthGuard],
+    component: CourseDetailsComponent,
+  },
   { path: ROUTER_PATH.invalidPage, component: PageNotFoundComponent },
 ];
 @NgModule({
