@@ -114,6 +114,6 @@ export class CoursesComponent implements OnInit {
 
   addCourse(): void {
     this.shareDataService.setIsEdit(false);
-    this.router.navigate([`${ROUTER_PATH.coursesPage} ${ROUTER_PATH.contextPath}  ${ROUTER_PATH.courseAdd}`]);
+    this.router.navigate([`${ROUTER_PATH.coursesPage}${ROUTER_PATH.contextPath}${ROUTER_PATH.courseAdd}`]);
   }
 }
