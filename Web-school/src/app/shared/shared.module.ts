@@ -21,6 +21,7 @@ import { OrderByPipe } from '../pipes/order-by.pipe';
 import { RemoveComponent } from './modals/remove/remove.component';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DurationFormatterPipe,
     OrderByPipe,
     RemoveComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     CommonModule,
@@ -67,6 +69,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     OrderByPipe,
     RemoveComponent,
     NgbModule,
+    BreadcrumbComponent,
   ],
 })
 export class SharedModule {}

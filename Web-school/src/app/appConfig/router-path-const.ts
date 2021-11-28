@@ -4,6 +4,7 @@ export const ROUTER_PATH = {
     loginPage: 'login',
     coursesPage: 'courses',
     courseAdd: 'add',
+    id: ':id',
     invalidPage: '**'
 
 };

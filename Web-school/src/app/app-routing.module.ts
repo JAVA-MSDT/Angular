@@ -7,24 +7,40 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './auth/guard/auth.guard';
 import { CoursesComponent } from './course/courses/courses.component';
 import { CourseDetailsComponent } from './course/course-details/course-details.component';
+import { BREADCRUMB_CONST } from './appConfig/breadcrumb-const';
 
 export const routes: Routes = [
-  { path: ROUTER_PATH.homePage, component: HomePageComponent },
-  { path: ROUTER_PATH.loginPage, component: LoginComponent },
+  {
+    path: ROUTER_PATH.homePage,
+    component: HomePageComponent,
+  },
+  {
+    path: ROUTER_PATH.loginPage,
+    component: LoginComponent,
+  },
   {
     path: ROUTER_PATH.coursesPage,
-    canActivate: [AuthGuard],
-    component: CoursesComponent,
-  },
-  {
-    path: ROUTER_PATH.coursesPage + '/:id',
-    canActivate: [AuthGuard],
-    component: CourseDetailsComponent,
-  },
-  {
-    path: `${ROUTER_PATH.coursesPage} ${ROUTER_PATH.contextPath}  ${ROUTER_PATH.courseAdd}`,
-    canActivate: [AuthGuard],
-    component: CourseDetailsComponent,
+    data: { breadcrumb: BREADCRUMB_CONST.COURSES },
+    children: [
+      {
+        path: ROUTER_PATH.homePage,
+        canActivate: [AuthGuard],
+        component: CoursesComponent,
+        data: { breadcrumb: null },
+      },
+      {
+        path: `${ROUTER_PATH.courseAdd}`,
+        canActivate: [AuthGuard],
+        component: CourseDetailsComponent,
+        data: { breadcrumb: BREADCRUMB_CONST.NEW_COURSE },
+      },
+      {
+        path: ROUTER_PATH.id,
+        canActivate: [AuthGuard],
+        component: CourseDetailsComponent,
+        data: { breadcrumb: BREADCRUMB_CONST.EDIT_COURSE },
+      },
+    ],
   },
   { path: ROUTER_PATH.invalidPage, component: PageNotFoundComponent },
 ];
