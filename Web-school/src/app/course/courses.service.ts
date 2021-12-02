@@ -1,25 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { ROUTER_PATH } from '../appConfig/router-path-const';
 import { CourseDomain } from '../domain/course-domain';
 import { COURSES } from '../mocking/courses-mock';
+import { CourseModule } from './course.module';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
   courses: CourseDomain[] = COURSES;
-  constructor() {}
+  api = environment.API_URL + ROUTER_PATH.coursesPage;
+  constructor(private http: HttpClient) {}
 
   getCourses(): Observable<CourseDomain[]> {
-    return of(this.courses);
+    return this.http.get<CourseDomain[]>(this.api);
   }
 
-  getCourseById(courseId: number): CourseDomain {
-    return this.courses.find((course) => {
-      if (course.id === courseId) {
-        return course;
-      }
-    });
+  getCourseById(courseId: number): Observable<CourseDomain> {
+    return this.http
+      .get<CourseDomain>(`${this.api}${ROUTER_PATH.contextPath}${courseId}`)
+    
   }
 
   getCourseOnSerach(searchArg: string): CourseDomain[] {

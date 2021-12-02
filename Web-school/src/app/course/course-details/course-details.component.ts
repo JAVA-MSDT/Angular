@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { ShareDataService } from 'src/app/services/share-data.service';
@@ -15,6 +16,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   courseId: number;
   course: CourseDomain;
   isEdit: boolean;
+  isLoading = true;
 
   courseIdTracker: number;
   courseTracker: CourseDomain;
@@ -32,24 +34,35 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       let id = parseInt(param.get('id'));
       this.courseId = id;
     });
-    this.course = this.courseService.getCourseById(this.courseId);
+
+    if (this.courseId) {
+      this.courseService.getCourseById(this.courseId).subscribe((result) => {
+        this.setCourse(result);
+      });
+    }
 
     this.shareDataService.isEditControl.subscribe(
       (value) => (this.isEdit = value)
     );
-
-    this.generateCourseForm();
+    setTimeout(() => {
+      this.generateCourseForm();
+      this.isLoading = false;
+    }, 1000);
+      
   }
 
   generateCourseForm(): void {
     this.courseForm = this.formBuilder.group({
-      courseTitle: this.isEdit ? this.course.title : null,
-      courseDescription: this.isEdit ? this.course.description : null,
-      courseDuration: this.isEdit ? this.course.duration : null,
-      courseCreatingDate: this.isEdit ? this.course.creatingDate : null,
+      courseDescription: [this.isEdit && this.course ? this.course.description : null, Validators.required],
+      courseTitle: [this.isEdit && this.course ? this.course.title : null, Validators.required],
+      courseDuration: [this.isEdit && this.course ? this.course.duration : null, Validators.required],
+      courseCreatingDate: [this.isEdit && this.course ? this.course.creatingDate : null, Validators.required],
     });
   }
 
+  setCourse(result: CourseDomain): void {
+    this.course = result;
+  }
   backToCourses(): void {
     this.router.navigate([ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage]);
   }

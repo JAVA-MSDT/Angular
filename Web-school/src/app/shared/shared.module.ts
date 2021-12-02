@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import {
   TranslateModule,
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [TranslateService, NgbActiveModal],
   exports: [
@@ -70,6 +72,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RemoveComponent,
     NgbModule,
     BreadcrumbComponent,
+    MatProgressSpinnerModule,
   ],
 })
 export class SharedModule {}

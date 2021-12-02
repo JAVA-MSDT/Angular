@@ -1,4 +1,7 @@
-<div
+
+<div *ngIf="isLoading"><mat-spinner></mat-spinner></div>
+
+<div *ngIf="!isLoading"
   class="container course-component-container"
   [webCourseBorderStyle]="course?.creatingDate"
   [ngClass]="{ topRatedCourse: course?.topRated }"
@@ -61,15 +64,15 @@
         />
       </div>
       <div class="col-12 my-2 d-flex justify-content-end align-items-center">
-        <button type="submit" class="btn btn-secondary me-3">
+        <button [disabled]="!courseForm.valid" type="submit" class="btn btn-secondary me-3">
           {{ "cancel" | translate }}
         </button>
-        <button type="submit" class="btn btn-success">
+        <button [disabled]="!courseForm.valid" type="submit" class="btn btn-success">
           {{ "submit" | translate }}
         </button>
       </div>
     </div>
-    <a (click)="backToCourses()" href="javascript:void(0);">{{
+    <a (click)="backToCourses()" tabindex="0" href="javascript:void(0);">{{
       "back.to.courses" | translate
     }}</a>
   </form>
