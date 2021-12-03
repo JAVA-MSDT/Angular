@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { RemoveComponent } from './remove.component';
+import { ConfirmationModalComponent } from './confirmation.component';
 
-describe('RemoveComponent', () => {
-  let component: RemoveComponent;
-  let fixture: ComponentFixture<RemoveComponent>;
+describe('ConfirmationModalComponent', () => {
+  let component: ConfirmationModalComponent;
+  let fixture: ComponentFixture<ConfirmationModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RemoveComponent ],
+      declarations: [ ConfirmationModalComponent ],
       providers: [NgbActiveModal]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RemoveComponent);
+    fixture = TestBed.createComponent(ConfirmationModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

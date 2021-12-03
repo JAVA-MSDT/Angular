@@ -19,10 +19,11 @@ import { HighlightSearchPipe } from '../pipes/highlight-search.pipe';
 import { CourseBorderStyleDirective } from '../directives/course-border-style.directive';
 import { DurationFormatterPipe } from '../pipes/duration-formatter.pipe';
 import { OrderByPipe } from '../pipes/order-by.pipe';
-import { RemoveComponent } from './modals/remove/remove.component';
+import { ConfirmationModalComponent } from './modals/confirmation/confirmation.component';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { GenericConfirmationModalComponent } from './modals/generic-confirmation-modal/generic-confirmation-modal.component';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,8 +41,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseBorderStyleDirective,
     DurationFormatterPipe,
     OrderByPipe,
-    RemoveComponent,
+    ConfirmationModalComponent,
     BreadcrumbComponent,
+    GenericConfirmationModalComponent
   ],
   imports: [
     CommonModule,
@@ -69,10 +71,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseBorderStyleDirective,
     DurationFormatterPipe,
     OrderByPipe,
-    RemoveComponent,
+    ConfirmationModalComponent,
     NgbModule,
     BreadcrumbComponent,
     MatProgressSpinnerModule,
+    GenericConfirmationModalComponent,
   ],
 })
 export class SharedModule {}

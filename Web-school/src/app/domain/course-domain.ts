@@ -1,5 +1,5 @@
 export interface CourseDomain {
-  id: number;
+  id?: number;
   title: string;
   creatingDate: string;
   duration: number;

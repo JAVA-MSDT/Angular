@@ -20,9 +20,9 @@ export class CoursesService {
   }
 
   getCourseById(courseId: number): Observable<CourseDomain> {
-    return this.http
-      .get<CourseDomain>(`${this.api}${ROUTER_PATH.contextPath}${courseId}`)
-    
+    return this.http.get<CourseDomain>(
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`
+    );
   }
 
   getCourseOnSerach(searchArg: string): CourseDomain[] {
@@ -31,13 +31,22 @@ export class CoursesService {
     );
     return coursesFilterd;
   }
+  updateCourse(
+    courseId: number,
+    course: CourseDomain
+  ): Observable<CourseDomain> {
+    return this.http.put<CourseDomain>(
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
+      course
+    );
+  }
 
-  deleteCourseById(courseId: number): CourseDomain[] {
-    this.courses = this.courses.filter((course) => {
-      if (course.id !== courseId) {
-        return course;
-      }
-    });
-    return this.courses;
+  addCourse(course: CourseDomain): Observable<CourseDomain> {
+    return this.http.post<CourseDomain>(`${this.api}`, course);
+  }
+  deleteCourseById(courseId: number): Observable<void> {
+    return this.http.delete<void>(
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`
+    );
   }
 }

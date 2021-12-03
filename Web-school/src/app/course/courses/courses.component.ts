@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { ShareDataService } from 'src/app/services/share-data.service';
-import { RemoveComponent } from 'src/app/shared/modals/remove/remove.component';
+import { ConfirmationModalComponent } from 'src/app/shared/modals/confirmation/confirmation.component';
 import { CoursesService } from '../courses.service';
 
 @Component({
@@ -61,7 +61,7 @@ export class CoursesComponent implements OnInit {
   }
 
   private openDeleteCourseModal(): void {
-    this.deleteCourseModalRef = this.modal.open(RemoveComponent, {
+    this.deleteCourseModalRef = this.modal.open(ConfirmationModalComponent, {
       centered: true,
       backdrop: 'static',
       ariaLabelledBy: 'modal-title',
@@ -106,14 +106,21 @@ export class CoursesComponent implements OnInit {
 
   deleteCourseOnConfirm(result: string): void {
     if (result === this.saveAction) {
-      this.courses = this.coursesService.deleteCourseById(
-        this.courseIdToDelete
+      this.coursesService.deleteCourseById(this.courseIdToDelete).subscribe(
+        (result) => {
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
       );
     }
   }
 
   addCourse(): void {
     this.shareDataService.setIsEdit(false);
-    this.router.navigate([`${ROUTER_PATH.coursesPage}${ROUTER_PATH.contextPath}${ROUTER_PATH.courseAdd}`]);
+    this.router.navigate([
+      `${ROUTER_PATH.coursesPage}${ROUTER_PATH.contextPath}${ROUTER_PATH.courseAdd}`,
+    ]);
   }
 }

@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'web-remove-modal',
-  templateUrl: './remove.component.html',
-  styleUrls: ['./remove.component.css'],
+  selector: 'web-confirmation-modal',
+  templateUrl: './confirmation.component.html',
+  styleUrls: ['./confirmation.component.scss'],
 })
-export class RemoveComponent implements OnInit {
+export class ConfirmationModalComponent implements OnInit {
   @Input() modalTitle: string;
   @Input() closeTitle: string;
   @Input() closeAction: string;
