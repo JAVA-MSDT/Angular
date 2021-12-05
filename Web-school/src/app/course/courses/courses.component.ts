@@ -65,6 +65,7 @@ export class CoursesComponent implements OnInit {
       centered: true,
       backdrop: 'static',
       ariaLabelledBy: 'modal-title',
+      ariaDescribedBy: 'modal-message',
     });
 
     this.translateService

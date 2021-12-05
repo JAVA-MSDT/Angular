@@ -1,29 +1,12 @@
 {
   "courses": [
     {
-      "id": 1672,
       "title": "officia exercitation tempor officia",
-      "description": "Laborum reprehenderit tempor do cillum ipsum consequat deserunt. In enim amet laboris occaecat sit cillum. Voluptate tempor consequat incididunt non pariatur eiusmod sint duis est.",
+      "creatingDate": "2020-06-06",
+      "duration": 52,
       "topRated": false,
-      "creatingDate": "2017-06-06",
-      "authors": [
-        {
-          "id": 1167,
-          "title": "Garrison",
-          "lasttitle": "Chambers"
-        },
-        {
-          "id": 9215,
-          "title": "Ofelia",
-          "lasttitle": "Rodgers"
-        },
-        {
-          "id": 978,
-          "title": "Avila",
-          "lasttitle": "Bolton"
-        }
-      ],
-      "duration": 52
+      "description": "Laborum reprehenderit tempor do cillum ipsum consequat deserunt. In enim amet laboris occaecat sit cillum. Voluptate tempor consequat incididunt non pariatur eiusmod sint duis est.",
+      "id": 1672
     },
     {
       "id": 3946,
@@ -619,6 +602,62 @@
       ],
       "duration": 207,
       "id": 2050
+    },
+    {
+      "title": "Adding Course Editing",
+      "creatingDate": "2021-12-05",
+      "duration": 100,
+      "topRated": false,
+      "description": "Adding Course",
+      "id": 9818
+    },
+    {
+      "title": "Adding Course 01",
+      "creatingDate": "2021-12-02",
+      "duration": 50,
+      "topRated": false,
+      "description": "редактирования",
+      "id": 9819
+    },
+    {
+      "title": "Adding Course 02 Edit",
+      "creatingDate": "2021-12-09",
+      "duration": 60,
+      "topRated": false,
+      "description": "Adding Course 02",
+      "id": 9820
+    },
+    {
+      "title": "Adding Course 03",
+      "creatingDate": "2021-12-03",
+      "duration": 80,
+      "topRated": false,
+      "description": "Adding Course 03",
+      "id": 9821
+    },
+    {
+      "title": "Adding Course 04",
+      "creatingDate": "2021-12-01",
+      "duration": 200,
+      "topRated": false,
+      "description": "Adding Course 04",
+      "id": 9822
+    },
+    {
+      "title": "Adding Course 05 Edit",
+      "creatingDate": "2021-12-15",
+      "duration": 65,
+      "topRated": false,
+      "description": "this.backToCourses Edit",
+      "id": 9823
+    },
+    {
+      "title": "Adding Course 06",
+      "creatingDate": "2021-11-18",
+      "duration": 70,
+      "topRated": false,
+      "description": "Adding Course 06",
+      "id": 9824
     }
   ]
 }

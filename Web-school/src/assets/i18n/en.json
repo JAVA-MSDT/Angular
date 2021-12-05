@@ -34,7 +34,11 @@
   "course.title": "Title",
   "course.description": "Description",
   "course.duration": "Duration",
-  "course.creating.date": "Creating Date"
+  "course.creating.date": "Creating Date",
+  "add.course.message": "Done Adding Course, Would you like to add more courses Press YES or to redirect to courses page press NO?",
+  "edit.course.message": "Done Editing Course, Would you like to Edit again Press YES or to redirect to courses page press NO?",
+  "add.course.label": "Confirm Adding Course",
+  "edit.course.label": "Confirm Editing Course"
 
 
 }
