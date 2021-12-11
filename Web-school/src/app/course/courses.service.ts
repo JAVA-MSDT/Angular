@@ -13,6 +13,7 @@ import { CourseModule } from './course.module';
 export class CoursesService {
   courses: CourseDomain[] = COURSES;
   api = environment.API_URL + ROUTER_PATH.coursesPage;
+  query = '?q=';
   constructor(private http: HttpClient) {}
 
   getCourses(): Observable<CourseDomain[]> {
@@ -25,11 +26,10 @@ export class CoursesService {
     );
   }
 
-  getCourseOnSerach(searchArg: string): CourseDomain[] {
-    const coursesFilterd = this.courses.filter((course) =>
-      course.title.toLowerCase().includes(searchArg.toLowerCase())
+  getCourseOnSerach(searchArg: string): Observable<CourseDomain[]> {
+    return this.http.get<CourseDomain[]>(
+      `${this.api}${this.query}${searchArg}`
     );
-    return coursesFilterd;
   }
   updateCourse(
     courseId: number,

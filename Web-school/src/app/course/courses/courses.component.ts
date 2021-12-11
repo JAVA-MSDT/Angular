@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { fromEvent, Observable } from 'rxjs';
+import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
 import { ShareDataService } from 'src/app/services/share-data.service';
@@ -14,6 +16,8 @@ import { CoursesService } from '../courses.service';
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
+  @ViewChild('searchInput', { static: true }) searchInput: ElementRef;
+
   courses: CourseDomain[] = [];
   deleteCourseModalRef: NgbModalRef;
   filterText: string;
@@ -40,15 +44,31 @@ export class CoursesComponent implements OnInit {
     this.coursesService
       .getCourses()
       .subscribe((courses) => (this.courses = courses));
+    this.searchCourseOnKeyup();
   }
 
-  searchCourse(event, searchArg: string): void {
-    this.courses = this.coursesService.getCourseOnSerach(searchArg);
-    event.preventDefault();
+  searchCourseOnKeyup(): void {
+    fromEvent(this.searchInput.nativeElement, 'keyup')
+      .pipe(
+        map((event: any) => {
+          this.filterText = event.target.value;
+          return event.target.value;
+        }),
+        debounceTime(1000),
+        distinctUntilChanged()
+      )
+      .subscribe((text: string) => {
+        this.searchGetCall(text).subscribe((res: CourseDomain[]) => {
+          this.courses = res;
+        });
+      });
   }
 
-  searchCourseOnKeyup(event): void {
-    this.filterText = event.target.value;
+  private searchGetCall(term: string): Observable<CourseDomain[]> {
+    if (term === '') {
+      return this.coursesService.getCourses();
+    }
+    return this.coursesService.getCourseOnSerach(term);
   }
 
   deleteCourse(courseId: number): void {

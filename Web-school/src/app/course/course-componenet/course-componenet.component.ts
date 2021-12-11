@@ -11,6 +11,7 @@ import { ShareDataService } from 'src/app/services/share-data.service';
 export class CourseComponenetComponent implements OnInit {
   @Input() course: CourseDomain;
   @Input() titleFilter: string;
+  @Input() descriptionFilter: string;
   @Output() deleteACourse = new EventEmitter();
   courseId: number;
   isEdit: boolean;
@@ -28,8 +29,6 @@ export class CourseComponenetComponent implements OnInit {
     this.shareDataService.isEditControl.subscribe(
       (value) => (this.isEdit = value)
     );
-
-    console.log(this.isEdit);
   }
 
   editCourse(course: CourseDomain) {

@@ -20,8 +20,6 @@ export class CourseResolver implements Resolve<CourseDomain> {
     state: RouterStateSnapshot
   ): Observable<CourseDomain> {
     let id = parseInt(route.paramMap.get('id'));
-    console.log('resolve');
-    console.log(id);
 
     return this.courseService.getCourseById(id);
   }

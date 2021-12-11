@@ -24,17 +24,7 @@
                 class="form-control"
                 id="searchCourse"
                 placeholder="{{ 'type.to.search' | translate }}"
-                (keyup)="searchCourseOnKeyup($event)"
               />
-            </div>
-            <div class="ms-3">
-              <button
-                type="submit"
-                class="btn btn-primary"
-                (click)="searchCourse($event, searchInput.value)"
-              >
-                {{ "search" | translate }}
-              </button>
             </div>
           </form>
         </div>
@@ -73,12 +63,13 @@
         </div>
       </div>
     </div>
-    <div class="col-12" *ngIf="(courses | orderBy:orderByOption | filterPipe: filterText) as result">
+    <div class="col-12" *ngIf="(courses | orderBy:orderByOption) as result">
       <web-course-componenet
         (deleteACourse)="deleteCourse($event)"
         [course]="course"
         *ngFor="let course of result"
         [titleFilter]="course.title | highlightSearch: filterText"
+        [descriptionFilter]="course.description | highlightSearch: filterText"
       ></web-course-componenet>
       <div class="col-12 load-more-container" *ngIf="result?.length">
         <a href="">{{ "load.more" | translate }}</a>
