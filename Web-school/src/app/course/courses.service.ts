@@ -1,52 +1,77 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { HTTP_CONST } from '../appConfig/http-const';
 import { ROUTER_PATH } from '../appConfig/router-path-const';
 import { CourseDomain } from '../domain/course-domain';
 import { COURSES } from '../mocking/courses-mock';
-import { CourseModule } from './course.module';
+import { HttpService } from '../services/http-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
+
   courses: CourseDomain[] = COURSES;
   api = environment.API_URL + ROUTER_PATH.coursesPage;
-  query = '?q=';
-  constructor(private http: HttpClient) {}
+  constructor(private httpService: HttpService) {}
 
   getCourses(): Observable<CourseDomain[]> {
-    return this.http.get<CourseDomain[]>(this.api);
+    return this.httpService.httpRequest(HTTP_CONST.GET, this.api, null, null);
   }
 
   getCourseById(courseId: number): Observable<CourseDomain> {
-    return this.http.get<CourseDomain>(
-      `${this.api}${ROUTER_PATH.contextPath}${courseId}`
+    return this.httpService.httpRequest(
+      HTTP_CONST.GET,
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
+      null,
+      null
     );
   }
 
   getCourseOnSerach(searchArg: string): Observable<CourseDomain[]> {
-    return this.http.get<CourseDomain[]>(
-      `${this.api}${this.query}${searchArg}`
+    const queryParams = { q: searchArg };
+    return this.httpService.httpRequest(
+      HTTP_CONST.GET,
+      this.api,
+      null,
+      queryParams,
+      null
     );
   }
+
   updateCourse(
     courseId: number,
     course: CourseDomain
   ): Observable<CourseDomain> {
-    return this.http.put<CourseDomain>(
+    return this.httpService.httpRequest(
+      HTTP_CONST.PUT,
       `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
-      course
+      course,
+      null
     );
   }
 
   addCourse(course: CourseDomain): Observable<CourseDomain> {
-    return this.http.post<CourseDomain>(`${this.api}`, course);
-  }
-  deleteCourseById(courseId: number): Observable<void> {
-    return this.http.delete<void>(
-      `${this.api}${ROUTER_PATH.contextPath}${courseId}`
+    return this.httpService.httpRequest(
+      HTTP_CONST.POST,
+      this.api,
+      course,
+      null
     );
+  }
+  
+  deleteCourseById(courseId: number): Observable<void> {
+    return this.httpService.httpRequest(
+      HTTP_CONST.DELETE,
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
+      null,
+      null
+    );
+  }
+
+  loadCurrentCondition(course: CourseDomain): Observable<CourseDomain[]> {
+    console.log(course);
+    return null;
   }
 }
