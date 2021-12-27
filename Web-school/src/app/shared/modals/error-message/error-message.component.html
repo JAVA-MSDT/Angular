@@ -1,6 +1,2 @@
-
-  <h2 *ngIf="!displayOnToutched && hasError()">Error {{ errorMessage }}</h2>
-
-
-  <h2 *ngIf="displayOnToutched && hasError() && isTouched()">Error Touched {{ errorMessage }}</h2>
-
+<p class="error-message" role="alert" aria-live="polite" *ngIf="displayError()">{{ errorMessage }}</p>
+<p class="error-message" role="alert" aria-live="polite" *ngIf="displayErrorOnTouchOrDirty()">{{ errorMessage }}</p> 

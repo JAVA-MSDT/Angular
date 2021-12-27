@@ -38,7 +38,11 @@
   "add.course.message": "Done Adding Course, Would you like to add more courses Press YES or to redirect to courses page press NO?",
   "edit.course.message": "Done Editing Course, Would you like to Edit again Press YES or to redirect to courses page press NO?",
   "add.course.label": "Confirm Adding Course",
-  "edit.course.label": "Confirm Editing Course"
+  "edit.course.label": "Confirm Editing Course",
+  "title.max.length": "Title length should be maximum of {{maxLength}} characters",
+  "title.required": "Title is Required",
+  "description.max.length": "Description length should be maximum of {{maxLength}} characters",
+  "description.required": "Description is Required"
 
 
 }

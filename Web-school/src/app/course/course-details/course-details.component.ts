@@ -28,10 +28,18 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   modalAddMessage: string = 'add.course.message';
   modalEditingMessage: string = 'edit.course.message';
 
+  readonly titleMaxLengthChars = 50;
+  readonly descriptionMaxLengthChars = 500;
+
   courseId: number;
   course: CourseDomain;
   isEdit: boolean;
   isLoading = true;
+  titleMaxLength: string;
+  titlerRequired: string;
+  descriptionMaxLength: string;
+  descriptionRequired: string;
+
 
   courseIdTracker: number;
   courseTracker: CourseDomain;
@@ -65,6 +73,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.generateCourseForm();
       this.isLoading = false;
+      this.initErrorMessages();
     }, 1000);
   }
 
@@ -73,11 +82,12 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       courseDescription: [
         this.isEdit && this.course ? this.course.description : null,
         Validators.required,
+        Validators.maxLength(this.descriptionMaxLengthChars),
       ],
       courseTitle: [
         this.isEdit && this.course ? this.course.title : null,[
         Validators.required,
-        Validators.maxLength(5),
+        Validators.maxLength(this.titleMaxLengthChars),
       ]],
       courseDuration: [
         this.isEdit && this.course ? this.course.duration : null,
@@ -183,6 +193,17 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
         (result) =>
           (this.confirmCourseModalRef.componentInstance.modalMessage = result)
       );
+  }
+
+  initErrorMessages(): void {
+    this.titleMaxLength = this.translateService.instant('title.max.length', {
+      maxLength: this.titleMaxLengthChars
+    })
+    this.titlerRequired = this.translateService.instant('title.required')
+    this.descriptionMaxLength = this.translateService.instant('description.max.length', {
+      maxLength: this.descriptionMaxLengthChars
+    })
+    this.descriptionRequired = this.translateService.instant('description.required')
   }
 
   ngOnDestroy(): void {

@@ -11,7 +11,7 @@ export class ErrorMessageComponent implements OnInit {
   @Input() formControlErrorName: string;
   @Input() errorName: string;
   @Input() errorMessage: string;
-  @Input() displayOnToutched = false;
+  @Input() displayOnToutchedOrDirty: boolean;
 
   abstractControl: AbstractControl;
 
@@ -27,7 +27,25 @@ export class ErrorMessageComponent implements OnInit {
     return this.abstractControl.hasError(this.errorName);
   }
 
-  isTouched(): boolean {
-    return this.abstractControl.touched;
+  isTouchedOrDirty(): boolean {
+    return this.abstractControl.touched || this.abstractControl.dirty;
+  }
+
+  displayErrorOnTouchOrDirty(): boolean {
+    if (this.displayOnToutchedOrDirty === undefined) {
+      this.displayOnToutchedOrDirty = true;
+    }
+    return (
+      this.displayOnToutchedOrDirty &&
+      this.hasError() &&
+      this.isTouchedOrDirty()
+    );
+  }
+
+  displayError(): boolean {
+    if (this.displayOnToutchedOrDirty === undefined) {
+      return false;
+    }
+    return !this.displayOnToutchedOrDirty && this.hasError();
   }
 }

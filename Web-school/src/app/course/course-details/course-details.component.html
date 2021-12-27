@@ -29,21 +29,16 @@
           [formGroupErrorName]="courseForm"
           formControlErrorName="courseTitle"
           errorName="required"
-          errorMessage="Error In required"
-          displayOnToutched="flase"
+          [errorMessage]="titlerRequired"
+          [displayOnToutchedOrDirty]="true"
         ></web-error-message>
-        <!--         <div *ngIf="courseForm.get('courseTitle').invalid && 
-        courseForm.get('courseTitle').errors && 
-        (courseForm.get('courseTitle').dirty || courseForm.get('courseTitle').touched)"
-        class="alert-danger">
-    
-      <div *ngIf="courseForm.get('courseTitle').hasError('required')">
-        courseTitle is required.
-      </div>
-      <div *ngIf="courseForm.get('courseTitle').hasError('maxlength')">
-        courseTitle must be at least 4 characters long.
-      </div>
-    </div> -->
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseTitle"
+          errorName="maxlength"
+          [errorMessage]="titleMaxLength"
+          [displayOnToutchedOrDirty]="false"
+        ></web-error-message>
       </div>
       <div class="col-12 my-2">
         <label for="courseDescription" class="form-label input-label">{{
