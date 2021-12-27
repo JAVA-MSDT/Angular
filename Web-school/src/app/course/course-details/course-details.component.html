@@ -1,13 +1,13 @@
-
 <div *ngIf="isLoading"><mat-spinner></mat-spinner></div>
 
-<div *ngIf="!isLoading"
+<div
+  *ngIf="!isLoading"
   class="container course-component-container"
   [webCourseBorderStyle]="course?.creatingDate"
   [ngClass]="{ topRatedCourse: course?.topRated }"
 >
-<h2 *ngIf="isEdit">{{ "edit.course" | translate }}</h2>
-<h2 *ngIf="!isEdit">{{ "add.course" | translate }}</h2>
+  <h2 *ngIf="isEdit">{{ "edit.course" | translate }}</h2>
+  <h2 *ngIf="!isEdit">{{ "add.course" | translate }}</h2>
   <form
     class="align-items-center"
     [formGroup]="courseForm"
@@ -25,6 +25,25 @@
           id="courseTitle"
           formControlName="courseTitle"
         />
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseTitle"
+          errorName="required"
+          errorMessage="Error In required"
+          displayOnToutched="flase"
+        ></web-error-message>
+        <!--         <div *ngIf="courseForm.get('courseTitle').invalid && 
+        courseForm.get('courseTitle').errors && 
+        (courseForm.get('courseTitle').dirty || courseForm.get('courseTitle').touched)"
+        class="alert-danger">
+    
+      <div *ngIf="courseForm.get('courseTitle').hasError('required')">
+        courseTitle is required.
+      </div>
+      <div *ngIf="courseForm.get('courseTitle').hasError('maxlength')">
+        courseTitle must be at least 4 characters long.
+      </div>
+    </div> -->
       </div>
       <div class="col-12 my-2">
         <label for="courseDescription" class="form-label input-label">{{
@@ -64,10 +83,18 @@
         />
       </div>
       <div class="col-12 my-2 d-flex justify-content-end align-items-center">
-        <button [disabled]="!courseForm.valid" type="reset" class="btn btn-secondary me-3">
+        <button
+          [disabled]="!courseForm.valid"
+          type="reset"
+          class="btn btn-secondary me-3"
+        >
           {{ "cancel" | translate }}
         </button>
-        <button [disabled]="!courseForm.valid" type="submit" class="btn btn-success">
+        <button
+          [disabled]="!courseForm.valid"
+          type="submit"
+          class="btn btn-success"
+        >
           {{ "submit" | translate }}
         </button>
       </div>

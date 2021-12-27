@@ -24,6 +24,7 @@ import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { GenericConfirmationModalComponent } from './modals/generic-confirmation-modal/generic-confirmation-modal.component';
+import { ErrorMessageComponent } from './modals/error-message/error-message.component';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     OrderByPipe,
     ConfirmationModalComponent,
     BreadcrumbComponent,
-    GenericConfirmationModalComponent
+    GenericConfirmationModalComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,
@@ -76,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BreadcrumbComponent,
     MatProgressSpinnerModule,
     GenericConfirmationModalComponent,
+    ErrorMessageComponent
   ],
 })
 export class SharedModule {}

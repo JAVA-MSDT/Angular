@@ -27,7 +27,7 @@ import { CurrentConditionsEffects } from './effects/current-conditions.effects';
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forFeature([CurrentConditionsEffects]),
+    EffectsModule.forRoot([CurrentConditionsEffects]),
   ],
   exports: [],
   providers: [],

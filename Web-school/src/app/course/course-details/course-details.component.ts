@@ -75,9 +75,10 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
         Validators.required,
       ],
       courseTitle: [
-        this.isEdit && this.course ? this.course.title : null,
+        this.isEdit && this.course ? this.course.title : null,[
         Validators.required,
-      ],
+        Validators.maxLength(5),
+      ]],
       courseDuration: [
         this.isEdit && this.course ? this.course.duration : null,
         Validators.required,

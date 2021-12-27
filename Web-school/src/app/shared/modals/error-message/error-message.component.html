@@ -1,0 +1,6 @@
+
+  <h2 *ngIf="!displayOnToutched && hasError()">Error {{ errorMessage }}</h2>
+
+
+  <h2 *ngIf="displayOnToutched && hasError() && isTouched()">Error Touched {{ errorMessage }}</h2>
+
