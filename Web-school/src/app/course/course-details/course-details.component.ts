@@ -40,7 +40,6 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   descriptionMaxLength: string;
   descriptionRequired: string;
 
-
   courseIdTracker: number;
   courseTracker: CourseDomain;
   courseForm: FormGroup;
@@ -81,14 +80,15 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     this.courseForm = this.formBuilder.group({
       courseDescription: [
         this.isEdit && this.course ? this.course.description : null,
-        Validators.required,
-        Validators.maxLength(this.descriptionMaxLengthChars),
+        [
+          Validators.required,
+          Validators.maxLength(this.descriptionMaxLengthChars),
+        ],
       ],
       courseTitle: [
-        this.isEdit && this.course ? this.course.title : null,[
-        Validators.required,
-        Validators.maxLength(this.titleMaxLengthChars),
-      ]],
+        this.isEdit && this.course ? this.course.title : null,
+        [Validators.required, Validators.maxLength(this.titleMaxLengthChars)],
+      ],
       courseDuration: [
         this.isEdit && this.course ? this.course.duration : null,
         Validators.required,
@@ -180,7 +180,10 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  private setModalTitleAndMessage(modalTitle: string, modalMessage: string): void {
+  private setModalTitleAndMessage(
+    modalTitle: string,
+    modalMessage: string
+  ): void {
     this.translateService
       .get(modalTitle)
       .subscribe(
@@ -197,13 +200,18 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
 
   initErrorMessages(): void {
     this.titleMaxLength = this.translateService.instant('title.max.length', {
-      maxLength: this.titleMaxLengthChars
-    })
-    this.titlerRequired = this.translateService.instant('title.required')
-    this.descriptionMaxLength = this.translateService.instant('description.max.length', {
-      maxLength: this.descriptionMaxLengthChars
-    })
-    this.descriptionRequired = this.translateService.instant('description.required')
+      maxLength: this.titleMaxLengthChars,
+    });
+    this.titlerRequired = this.translateService.instant('title.required');
+    this.descriptionMaxLength = this.translateService.instant(
+      'description.max.length',
+      {
+        maxLength: this.descriptionMaxLengthChars,
+      }
+    );
+    this.descriptionRequired = this.translateService.instant(
+      'description.required'
+    );
   }
 
   ngOnDestroy(): void {

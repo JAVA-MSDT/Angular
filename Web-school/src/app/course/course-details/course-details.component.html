@@ -52,6 +52,20 @@
           id="courseDescription"
           formControlName="courseDescription"
         ></textarea>
+        <web-error-message
+        [formGroupErrorName]="courseForm"
+        formControlErrorName="courseDescription"
+        errorName="required"
+        [errorMessage]="descriptionRequired"
+        [displayOnToutchedOrDirty]="true"
+      ></web-error-message>
+      <web-error-message
+        [formGroupErrorName]="courseForm"
+        formControlErrorName="courseDescription"
+        errorName="maxlength"
+        [errorMessage]="descriptionMaxLength"
+        [displayOnToutchedOrDirty]="false"
+      ></web-error-message>
       </div>
       <div class="col-12 my-2">
         <label for="courseDuration" class="form-label input-label">{{
