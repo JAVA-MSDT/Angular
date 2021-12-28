@@ -42,7 +42,9 @@
   "title.max.length": "Title length should be maximum of {{maxLength}} characters",
   "title.required": "Title is Required",
   "description.max.length": "Description length should be maximum of {{maxLength}} characters",
-  "description.required": "Description is Required"
+  "description.required": "Description is Required",
+  "duration.minimum.time": "Duration time should be minimum of {{minimumTime}} minutes",
+  "duration.required": "Duration is Required"
 
 
 }

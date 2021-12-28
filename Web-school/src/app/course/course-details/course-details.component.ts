@@ -30,6 +30,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
 
   readonly titleMaxLengthChars = 50;
   readonly descriptionMaxLengthChars = 500;
+  readonly durationMinimumTime = 10;
 
   courseId: number;
   course: CourseDomain;
@@ -39,6 +40,8 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   titlerRequired: string;
   descriptionMaxLength: string;
   descriptionRequired: string;
+  durationMinimumTimeMessage: string;
+  durationRequired: string;
 
   courseIdTracker: number;
   courseTracker: CourseDomain;
@@ -91,7 +94,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       ],
       courseDuration: [
         this.isEdit && this.course ? this.course.duration : null,
-        Validators.required,
+        [Validators.required, Validators.min(this.durationMinimumTime)],
       ],
       courseCreatingDate: [
         this.isEdit && this.course ? this.course.creatingDate : null,
@@ -212,6 +215,13 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     this.descriptionRequired = this.translateService.instant(
       'description.required'
     );
+    this.durationMinimumTimeMessage = this.translateService.instant(
+      'duration.minimum.time',
+      {
+        minimumTime: this.durationMinimumTime,
+      }
+    );
+    this.durationRequired = this.translateService.instant('duration.required');
   }
 
   ngOnDestroy(): void {

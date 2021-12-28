@@ -180,3 +180,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.ng-invalid.ng-touched {
+  border: red 1px solid;
+}

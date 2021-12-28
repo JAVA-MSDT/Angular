@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { GenericConfirmationModalComponent } from './modals/generic-confirmation-modal/generic-confirmation-modal.component';
 import { ErrorMessageComponent } from './modals/error-message/error-message.component';
+import { NumberInputComponent } from './modals/number-input/number-input.component';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,7 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConfirmationModalComponent,
     BreadcrumbComponent,
     GenericConfirmationModalComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    NumberInputComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +80,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BreadcrumbComponent,
     MatProgressSpinnerModule,
     GenericConfirmationModalComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    NumberInputComponent
   ],
 })
 export class SharedModule {}

@@ -1,29 +1,12 @@
 {
   "courses": [
     {
-      "id": 3946,
-      "title": "nisi ex incididunt aliquip",
-      "description": "Commodo excepteur velit in consectetur sit esse Lorem occaecat labore laboris et. Deserunt fugiat ea aliquip labore culpa fugiat labore incididunt. Duis ex mollit quis aliquip eiusmod.",
+      "title": "Number Test",
+      "creatingDate": "2021-12-29",
+      "duration": 50,
       "topRated": false,
-      "creatingDate": "2016-11-03",
-      "authors": [
-        {
-          "id": 612,
-          "title": "Pam",
-          "lasttitle": "Vazquez"
-        },
-        {
-          "id": 6050,
-          "title": "Norman",
-          "lasttitle": "Love"
-        },
-        {
-          "id": 2252,
-          "title": "Reba",
-          "lasttitle": "Perez"
-        }
-      ],
-      "duration": 31
+      "description": "Number Test",
+      "id": 3946
     },
     {
       "id": 8464,

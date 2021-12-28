@@ -53,31 +53,44 @@
           formControlName="courseDescription"
         ></textarea>
         <web-error-message
-        [formGroupErrorName]="courseForm"
-        formControlErrorName="courseDescription"
-        errorName="required"
-        [errorMessage]="descriptionRequired"
-        [displayOnToutchedOrDirty]="true"
-      ></web-error-message>
-      <web-error-message
-        [formGroupErrorName]="courseForm"
-        formControlErrorName="courseDescription"
-        errorName="maxlength"
-        [errorMessage]="descriptionMaxLength"
-        [displayOnToutchedOrDirty]="false"
-      ></web-error-message>
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseDescription"
+          errorName="required"
+          [errorMessage]="descriptionRequired"
+          [displayOnToutchedOrDirty]="true"
+        ></web-error-message>
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseDescription"
+          errorName="maxlength"
+          [errorMessage]="descriptionMaxLength"
+          [displayOnToutchedOrDirty]="false"
+        ></web-error-message>
       </div>
       <div class="col-12 my-2">
         <label for="courseDuration" class="form-label input-label">{{
           "course.duration" | translate
         }}</label>
         <p class="float-end required">*{{ "required" | translate }}</p>
-        <input
-          type="number"
-          class="form-control"
-          id="courseDuration"
+        <web-number-input
+          classesName="form-control"
           formControlName="courseDuration"
-        />
+          id="courseDuration"
+        ></web-number-input>
+        <web-error-message
+        [formGroupErrorName]="courseForm"
+        formControlErrorName="courseDuration"
+        errorName="required"
+        [errorMessage]="durationRequired"
+        [displayOnToutchedOrDirty]="true"
+      ></web-error-message>
+      <web-error-message
+      [formGroupErrorName]="courseForm"
+      formControlErrorName="courseDuration"
+      errorName="min"
+      [errorMessage]="durationMinimumTimeMessage"
+      [displayOnToutchedOrDirty]="true"
+    ></web-error-message>
       </div>
       <div class="col-12 my-2">
         <label for="courseCreatingDate" class="form-label input-label">{{

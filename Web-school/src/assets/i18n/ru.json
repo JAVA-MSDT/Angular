@@ -42,7 +42,9 @@
   "title.max.length": "Длина заголовка не должна превышать {{maxLength}} символов",
   "title.required": "Требуется заголовок",
   "description.max.length": "Длина описания не должна превышать {{maxLength}} символов",
-  "description.required": "Требуется описание"
+  "description.required": "Требуется описание",
+  "duration.minimum.time": "Продолжительность должна быть минимум {{minimumTime}} минут",
+  "duration.required": "Продолжительность обязательна"
 
 
 }
