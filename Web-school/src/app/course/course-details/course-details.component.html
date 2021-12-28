@@ -24,6 +24,7 @@
           class="form-control"
           id="courseTitle"
           formControlName="courseTitle"
+          [ngClass]="isErrorBroder(courseForm, 'courseTitle') ? 'input-error' : ''"
         />
         <web-error-message
           [formGroupErrorName]="courseForm"
@@ -51,6 +52,7 @@
           class="form-control"
           id="courseDescription"
           formControlName="courseDescription"
+          [ngClass]="isErrorBroder(courseForm, 'courseDescription') ? 'input-error' : ''"
         ></textarea>
         <web-error-message
           [formGroupErrorName]="courseForm"
@@ -76,6 +78,7 @@
           classesName="form-control"
           formControlName="courseDuration"
           id="courseDuration"
+          [errorClass]="isErrorBroder(courseForm, 'courseDuration') ? 'input-error' : ''"
         ></web-number-input>
         <web-error-message
         [formGroupErrorName]="courseForm"
@@ -102,6 +105,7 @@
           class="form-control"
           id="courseCreatingDate"
           formControlName="courseCreatingDate"
+          [ngClass]="isErrorBroder(courseForm, 'courseCreatingDate') ? 'input-error' : ''"
         />
       </div>
       <div class="col-12 my-2 d-flex justify-content-end align-items-center">

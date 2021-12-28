@@ -1,5 +1,5 @@
 import { invalid } from '@angular/compiler/src/render3/view/util';
-import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
@@ -24,16 +24,14 @@ export class NumberInputComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder = 'Enter a Number';
   @Input() classesName: string;
   @Input() ariaLabelledBy: string;
+  @Input() errorClass: string;
   numberField = new FormControl('');
-  invalid = false;
-  numberInput: HTMLInputElement;
-
   constructor() {}
+
   private onChange: (inputValue: number) => void;
   private onTouched: () => void;
 
   ngOnInit(): void {
-    this.numberInput = document.getElementById(this.id) as HTMLInputElement;
   }
 
   doInput(): void {
