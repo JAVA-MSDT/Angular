@@ -44,7 +44,10 @@
   "description.max.length": "Description length should be maximum of {{maxLength}} characters",
   "description.required": "Description is Required",
   "duration.minimum.time": "Duration time should be minimum of {{minimumTime}} minutes",
-  "duration.required": "Duration is Required"
+  "duration.required": "Duration is Required",
+  "author.required": "Author is Required",
+  "add.author": "Add author",
+  "authors.label": "Authors"
 
 
 }

@@ -44,7 +44,10 @@
   "description.max.length": "Длина описания не должна превышать {{maxLength}} символов",
   "description.required": "Требуется описание",
   "duration.minimum.time": "Продолжительность должна быть минимум {{minimumTime}} минут",
-  "duration.required": "Продолжительность обязательна"
+  "duration.required": "Продолжительность обязательна",
+  "author.required": "Укажите автора",
+  "add.author": "Добавить автора",
+  "authors.label": "Авторы"
 
 
 }

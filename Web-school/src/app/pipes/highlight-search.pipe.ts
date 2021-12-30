@@ -12,7 +12,7 @@ export class HighlightSearchPipe implements PipeTransform {
     }
 
     const regex = new RegExp(filterText, 'gi');
-    const match = value.match(regex);
+    const match = value?.match(regex);
 
     if (!match) {
       return value;

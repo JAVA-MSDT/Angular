@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HTTP_CONST } from '../appConfig/http-const';
 import { ROUTER_PATH } from '../appConfig/router-path-const';
+import { Author } from '../domain/author';
 import { CourseDomain } from '../domain/course-domain';
 import { COURSES } from '../mocking/courses-mock';
 import { HttpService } from '../services/http-service';
@@ -11,7 +12,6 @@ import { HttpService } from '../services/http-service';
   providedIn: 'root',
 })
 export class CoursesService {
-
   courses: CourseDomain[] = COURSES;
   api = environment.API_URL + ROUTER_PATH.coursesPage;
   constructor(private httpService: HttpService) {}
@@ -60,7 +60,7 @@ export class CoursesService {
       null
     );
   }
-  
+
   deleteCourseById(courseId: number): Observable<void> {
     return this.httpService.httpRequest(
       HTTP_CONST.DELETE,
@@ -73,5 +73,17 @@ export class CoursesService {
   loadCurrentCondition(course: CourseDomain): Observable<CourseDomain[]> {
     console.log(course);
     return null;
+  }
+
+  getAuthors(): Observable<Author[]> {
+    let authors: Author[] = [];
+    this.getCourses().subscribe((courses) => {
+      courses.forEach((course) => {
+        if (course.authors) {
+          authors.push(...course.authors);
+        }
+      });
+    });
+    return of(authors);
   }
 }

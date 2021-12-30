@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import {
   TranslateModule,
@@ -26,11 +27,21 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { GenericConfirmationModalComponent } from './modals/generic-confirmation-modal/generic-confirmation-modal.component';
 import { ErrorMessageComponent } from './modals/error-message/error-message.component';
 import { NumberInputComponent } from './modals/number-input/number-input.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
 
 // loader module
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+const ANGULAR_MATTERIALS = [
+MatFormFieldModule,
+MatProgressSpinnerModule,
+MatNativeDateModule,
+MatAutocompleteModule,
+MatChipsModule,
+];
 
 @NgModule({
   declarations: [
@@ -61,7 +72,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    ...ANGULAR_MATTERIALS
+    
   ],
   providers: [TranslateService, NgbActiveModal],
   exports: [
@@ -78,10 +90,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConfirmationModalComponent,
     NgbModule,
     BreadcrumbComponent,
-    MatProgressSpinnerModule,
     GenericConfirmationModalComponent,
     ErrorMessageComponent,
-    NumberInputComponent
+    NumberInputComponent,
+    ...ANGULAR_MATTERIALS
   ],
 })
 export class SharedModule {}

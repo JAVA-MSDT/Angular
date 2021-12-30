@@ -28,6 +28,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   saveAction: string = 'yes';
   modalAddMessage: string = 'add.course.message';
   modalEditingMessage: string = 'edit.course.message';
+  addAuthor: string = 'add.author';
 
   readonly titleMaxLengthChars = 50;
   readonly descriptionMaxLengthChars = 500;
@@ -43,6 +44,8 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   descriptionRequired: string;
   durationMinimumTimeMessage: string;
   durationRequired: string;
+  authorRequired: string;
+  addAuthorPlaceHolder: string;
 
   courseIdTracker: number;
   courseTracker: CourseDomain;
@@ -79,6 +82,10 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       this.isLoading = false;
       this.initErrorMessages();
     }, 1000);
+    
+    this.translateService
+      .get(this.addAuthor)
+      .subscribe((result) => (this.addAuthorPlaceHolder = result));
   }
 
   generateCourseForm(): void {
@@ -102,6 +109,10 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
         this.isEdit && this.course ? this.course.creatingDate : null,
         Validators.required,
       ],
+      authors: this.formBuilder.array(
+        this.isEdit && this.course ? this.course.authors : [],
+        Validators.required
+      ),
     });
   }
 
@@ -119,6 +130,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       duration: this.courseForm.value.courseDuration,
       topRated: false,
       description: this.courseForm.value.courseDescription,
+      authors: this.courseForm.value.authors,
     };
     if (this.courseId) {
       this.courseService.updateCourse(this.courseId, course).subscribe(
@@ -130,7 +142,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
         }
       );
     } else {
-      this.store.dispatch(new AddCourse(course));
+      // this.store.dispatch(new AddCourse(course));
       this.courseService.addCourse(course).subscribe(
         (result) => {
           this.openDeleteCourseModal();
@@ -224,6 +236,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       }
     );
     this.durationRequired = this.translateService.instant('duration.required');
+    this.authorRequired = this.translateService.instant('author.required');
   }
 
   isErrorBroder(courseForm: FormGroup, inputformName: string): boolean {
