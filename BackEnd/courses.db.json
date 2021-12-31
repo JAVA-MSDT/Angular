@@ -546,53 +546,12 @@
       "duration": 45
     },
     {
-      "title": "New Task",
-      "description": "Sunt culpa officia minim commodo eiusmod irure sunt nostrud. Mollit aliquip id occaecat officia proident anim dolor officia qui voluptate consectetur laborum. Duis incididunt culpa aliqua mollit do fugiat ea dolor mollit irure Lorem tempor.",
-      "topRated": false,
-      "creatingDate": "2016-05-31",
-      "authors": [
-        {
-          "id": 8413,
-          "title": "Greta",
-          "lasttitle": "Richardson"
-        },
-        {
-          "id": 7458,
-          "title": "Deana",
-          "lasttitle": "Bruce"
-        },
-        {
-          "id": 5508,
-          "title": "Patsy",
-          "lasttitle": "Bright"
-        }
-      ],
-      "duration": 207,
-      "id": 2050
-    },
-    {
-      "title": "Adding Course Editing",
-      "creatingDate": "2021-12-05",
-      "duration": 100,
-      "topRated": false,
-      "description": "Adding Course",
-      "id": 9818
-    },
-    {
       "title": "Adding Course 01",
       "creatingDate": "2021-12-02",
       "duration": 50,
       "topRated": false,
       "description": "редактирования",
       "id": 9819
-    },
-    {
-      "title": "Adding Course 02 Edit",
-      "creatingDate": "2021-12-09",
-      "duration": 60,
-      "topRated": false,
-      "description": "Adding Course 02",
-      "id": 9820
     },
     {
       "title": "Adding Course 03",
