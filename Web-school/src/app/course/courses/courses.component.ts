@@ -48,9 +48,7 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.coursesService
-      .getCourses()
-      .subscribe((courses) => (this.courses = courses));
+    this.setCourses();
     this.searchCourseOnKeyup();
   }
 
@@ -137,6 +135,7 @@ export class CoursesComponent implements OnInit {
       this.coursesService.deleteCourseById(this.courseIdToDelete).subscribe(
         (result) => {
           console.log(result);
+          this.setCourses();
         },
         (error) => {
           console.log(error);
@@ -150,5 +149,11 @@ export class CoursesComponent implements OnInit {
     this.router.navigate([
       `${ROUTER_PATH.coursesPage}${ROUTER_PATH.contextPath}${ROUTER_PATH.courseAdd}`,
     ]);
+  }
+
+  setCourses(): void {
+    this.coursesService
+      .getCourses()
+      .subscribe((courses) => (this.courses = courses));
   }
 }
