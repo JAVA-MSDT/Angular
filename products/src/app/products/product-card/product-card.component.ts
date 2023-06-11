@@ -10,4 +10,8 @@ export class ProductCardComponent {
 
   @Input()
   product: Product | undefined;
+
+  viewProduct(product: Product | undefined): void{
+    alert(product?.id);
+  }
 }

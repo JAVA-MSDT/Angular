@@ -1,2 +1,5 @@
 <h3>Title:: </h3> <p>{{product?.id}} - {{product?.title}}</p>
 <img [src]="product?.image" width="250" height="250"/>
+<button type="button" (click)="viewProduct(product)">
+View Product
+</button>
