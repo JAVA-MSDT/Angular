@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/domains/Product';
 
 @Component({
@@ -11,7 +12,10 @@ export class ProductCardComponent {
   @Input()
   product: Product | undefined;
 
+  constructor(private router: Router) {
+  }
+
   viewProduct(product: Product | undefined): void{
-    alert(product?.id);
+    this.router.navigate(['/products/' + product?.id]);
   }
 }
