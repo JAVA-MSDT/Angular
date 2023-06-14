@@ -15,12 +15,12 @@ export class DepartmentComponent implements OnInit {
     { id: 5, name: 'JavaScript' },
   ];
 
-  public selectedId: number;
+  public selectedId: number = 0;
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      let id = parseInt(params.get('id'));
+      let id = parseInt(params.get('id') as string);
       this.selectedId = id;
     });
   }

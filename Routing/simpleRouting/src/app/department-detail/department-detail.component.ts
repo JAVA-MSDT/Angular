@@ -7,14 +7,14 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
   styleUrls: ['./department-detail.component.css'],
 })
 export class DepartmentDetailComponent implements OnInit {
-  departmentId: number;
+  departmentId: number = 0;
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     // let id: number = parseInt(this.route.snapshot.paramMap.get('id'));
     // this.departmentId = id;
     this.route.paramMap.subscribe((params: ParamMap) => {
-      let id = parseInt(params.get('id'));
+      let id = parseInt(params.get('id') as string);
       this.departmentId = id;
     });
   }
