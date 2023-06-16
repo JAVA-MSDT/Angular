@@ -10,12 +10,12 @@ import { Product } from 'src/app/domains/Product';
 export class ProductCardComponent {
 
   @Input()
-  product: Product | undefined;
+  product: Product;
 
   constructor(private router: Router) {
   }
 
-  viewProduct(product: Product | undefined): void{
+  viewProduct(product: Product): void{
     this.router.navigate(['/products/' + product?.id]);
   }
 }
