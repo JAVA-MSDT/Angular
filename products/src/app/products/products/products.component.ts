@@ -19,7 +19,6 @@ export class ProductsComponent implements OnInit {
       .subscribe((product) => {
         console.log(product);
         this.products = product;
-        console.log("Products:: " + this.products.length);
       });
   }
 
