@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 
@@ -11,15 +13,18 @@ import { ProductCardComponent } from './product-card/product-card.component';
   declarations: [
     ProductPageComponent,
     ProductsComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [
     ProductPageComponent,
-    ProductsComponent
+    ProductsComponent,
+    AddProductComponent
   ]
 })
 export class ProductsModule { }
