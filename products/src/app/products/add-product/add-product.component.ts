@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -13,7 +13,14 @@ export class AddProductComponent {
     password: new FormControl(''),
   });
 
+  formEmailResult: string;
+  formPasswordResult: string;
+
+  constructor(private fb: FormBuilder) { }
+  
   onSubmit(): void {
     console.log(this.productForm.value)
+    this.formEmailResult = this.productForm.value.email as string;
+    this.formPasswordResult = this.productForm.value.password as string;
   }
 }
