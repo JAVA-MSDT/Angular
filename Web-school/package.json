@@ -6,6 +6,7 @@
     "start": "ng serve",
     "startDev": "ng serve --configuration=dev",
     "startBr": "ng serve --o",
+    "startBackend": "json-server ../BackEnd/courses.db.json --port 3000",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -33,6 +34,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.0",
+    "json-server": "^1.0.0-beta.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.13.0"
