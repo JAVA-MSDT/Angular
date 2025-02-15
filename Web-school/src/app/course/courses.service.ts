@@ -1,29 +1,89 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { HTTP_CONST } from '../appConfig/http-const';
+import { ROUTER_PATH } from '../appConfig/router-path-const';
+import { Author } from '../domain/author';
 import { CourseDomain } from '../domain/course-domain';
 import { COURSES } from '../mocking/courses-mock';
+import { HttpService } from '../services/http-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
-  constructor() {}
+  courses: CourseDomain[] = COURSES;
+  api = environment.API_URL + ROUTER_PATH.coursesPage;
+  constructor(private httpService: HttpService) {}
 
-  getCourses(): CourseDomain[] {
-    return COURSES;
+  getCourses(): Observable<CourseDomain[]> {
+    return this.httpService.httpRequest(HTTP_CONST.GET, this.api, null, null);
   }
 
-  getCourseById(courseId: number): CourseDomain {
-    return this.getCourses().find((course) => {
-      if (course.id === courseId) {
-        return course;
-      }
-    });
-  }
-
-  getCourseOnSerach(searchArg: string): CourseDomain[] {
-    const coursesFilterd = COURSES.filter((course) =>
-      course.title.toLowerCase().includes(searchArg.toLowerCase())
+  getCourseById(courseId: number): Observable<CourseDomain> {
+    return this.httpService.httpRequest(
+      HTTP_CONST.GET,
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
+      null,
+      null
     );
-    return coursesFilterd;
+  }
+
+  getCourseOnSerach(searchArg: string): Observable<CourseDomain[]> {
+    const queryParams = { q: searchArg };
+    return this.httpService.httpRequest(
+      HTTP_CONST.GET,
+      this.api,
+      null,
+      queryParams,
+      null
+    );
+  }
+
+  updateCourse(
+    courseId: number,
+    course: CourseDomain
+  ): Observable<CourseDomain> {
+    return this.httpService.httpRequest(
+      HTTP_CONST.PUT,
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
+      course,
+      null
+    );
+  }
+
+  addCourse(course: CourseDomain): Observable<CourseDomain> {
+    return this.httpService.httpRequest(
+      HTTP_CONST.POST,
+      this.api,
+      course,
+      null
+    );
+  }
+
+  deleteCourseById(courseId: number): Observable<void> {
+    return this.httpService.httpRequest(
+      HTTP_CONST.DELETE,
+      `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
+      null,
+      null
+    );
+  }
+
+  loadCurrentCondition(course: CourseDomain): Observable<CourseDomain[]> {
+    console.log(course);
+    return null;
+  }
+
+  getAuthors(): Observable<Author[]> {
+    let authors: Author[] = [];
+    this.getCourses().subscribe((courses) => {
+      courses.forEach((course) => {
+        if (course.authors) {
+          authors.push(...course.authors);
+        }
+      });
+    });
+    return of(authors);
   }
 }

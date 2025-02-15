@@ -1,0 +1,10 @@
+<input
+  type="number"
+  [formControl]="numberField"
+  attr.id="{{id}}"
+  (input)="doInput()"
+  (blur)="doBlur()"
+  attr.placeholder="{{placeholder}}"
+  attr.class="{{classesName}} {{errorClass}}"
+  attr.aria-labelledby="{{ariaLabelledBy}}"
+/>
