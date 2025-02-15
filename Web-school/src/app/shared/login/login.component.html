@@ -9,43 +9,51 @@
       w-100
     "
   >
-    <form class="form-container align-items-center">
+    <form
+      class="form-container align-items-center"
+      [formGroup]="loginForm"
+      (ngSubmit)="onFormSubmit()"
+    >
       <div class="my-4">
-        <label for="exampleInputEmail1" class="form-label login-label"
-          >Login</label
-        >
-        <p class="wrong-e-mail-or-pass float-end">Wrong Email or Password</p>
+        <label for="exampleInputEmail1" class="form-label login-label">{{
+          "login" | translate
+        }}</label>
+        <p class="wrong-e-mail-or-pass float-end" *ngIf="credintialError">
+          {{ "email.error" | translate }}
+        </p>
       </div>
       <div class="my-4">
-        <label for="exampleInputEmail1" class="form-label input-label"
-          >Email</label
-        >
-        <p class="float-end required">*Required</p>
+        <label for="exampleInputEmail1" class="form-label input-label">{{
+          "email" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
         <input
           type="email"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          formControlName="username"
         />
       </div>
       <div class="my-4">
-        <label for="exampleInputPassword1" class="form-label input-label"
-          >Password</label
-        >
-        <p class="float-end required">*Required</p>
+        <label for="exampleInputPassword1" class="form-label input-label">{{
+          "password" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
         <input
           type="password"
           class="form-control"
           id="exampleInputPassword1"
+          formControlName="password"
         />
       </div>
-      <a href="" class="forgot-password">Forget Password</a>
+      <a href="" class="forgot-password">{{ "forget.password" | translate }}</a>
       <button
+        [disabled]="!loginForm.valid"
         type="submit"
-        class="btn btn-primary float-end"
-        (click)="loggIn()"
+        class="btn btn-success float-end"
       >
-        Submit
+        {{ "submit" | translate }}
       </button>
     </form>
   </div>

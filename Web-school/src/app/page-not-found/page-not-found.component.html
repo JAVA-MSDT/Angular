@@ -1,0 +1,26 @@
+<div
+  class="
+  pageNotFoundContainer
+    row
+    d-flex
+    justify-content-center
+    align-items-center
+    text-center
+  "
+>
+  <div class="w-75 d-flex justify-content-center align-items-center row">
+    <div class="col-12">
+      <h1>{{ "page.not.found" | translate }}</h1>
+    </div>
+    <div class="w-50 col-12">
+      <a
+        class="btn btn-success btn-lg w-75"
+        type="button"
+        (click)="backToHomePage()"
+        href="javascript:void(0);"
+        >{{ "back.to.home" | translate }}</a
+      >
+    </div>
+  </div>
+</div>
+

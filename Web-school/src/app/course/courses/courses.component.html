@@ -1,47 +1,81 @@
-<div class="container mb-4">
-  <div class="row courses-title">
-    <p class="courses-header-title">Courses</p>
+<div class="container mb-3">
+  <div class="row courses-title py-2">
+    <p class="courses-header-title">{{ "courses" | translate }}</p>
   </div>
   <div class="row">
-    <div class="col-12 d-flex justify-content-center align-items-end pt-0">
-      <div class="col-6 col-m-12 ps-3">
-        <form class="d-flex justify-content-start align-items-start">
-          <div class="">
-            <label for="searchCourse" class="visually-hidden"
-              >Search Course</label
-            >
-            <input
-              #searchInput
-              type="test"
-              class="form-control"
-              id="searchCourse"
-              placeholder="Type To Search"
-            />
-          </div>
-          <div class="ms-3">
+    <div class="col-12">
+      <div class="row">
+        <div
+          class="
+            col-12 col-md-6
+            d-flex
+            justify-content-start
+            align-items-center
+          "
+        >
+          <form class="d-flex justify-content-start align-items-center py-1">
+            <div class="">
+              <label for="searchCourse" class="visually-hidden">{{
+                "search.course" | translate
+              }}</label>
+              <input
+                #searchInput
+                type="test"
+                class="form-control"
+                id="searchCourse"
+                placeholder="{{ 'type.to.search' | translate }}"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div
+          class="
+            col-12 col-md-6
+            d-flex
+            justify-content-start justify-content-md-end
+            align-items-end
+            py-1
+          "
+        >
+          <button type="button" class="btn btn-primary btn-lg" (click)="addCourse()">
+            {{ "add.course" | translate }}
+          </button>
+          <div class="dropdown ms-3">
             <button
-              type="submit"
-              class="btn btn-primary"
-              (click)="searchCourse($event, searchInput.value)"
+              class="btn btn-success btn-lg dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
-              Search
+              {{ "order.by" | translate }}
             </button>
+            <ul class="dropdown-menu bg-success text-center" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <button class="dropdown-item" (click)="orderBy('asc')">ASC</button>
+              </li>
+              <li>
+                <button class="dropdown-item" (click)="orderBy('desc')" >DESC</button>
+              </li>
+            </ul>
           </div>
-        </form>
-      </div>
-      <div
-        class="col-6 col-m-12 d-flex justify-content-end align-items-end pe-3"
-      >
-        <button type="button" class="btn btn-primary btn-lg">Add Course</button>
+        </div>
       </div>
     </div>
-    <div class="col-12">
+    <div class="col-12" *ngIf="(courses | orderBy:orderByOption) as result">
       <web-course-componenet
+        (deleteACourse)="deleteCourse($event)"
         [course]="course"
-        *ngFor="let course of courses"
+        *ngFor="let course of result"
+        [titleFilter]="course.title | highlightSearch: filterText"
+        [descriptionFilter]="course.description | highlightSearch: filterText"
       ></web-course-componenet>
-      <div class="col-12 load-more-container">
-        <a href="">Load More</a>
+      <div class="col-12 load-more-container" *ngIf="result?.length">
+        <a href="">{{ "load.more" | translate }}</a>
+      </div>
+      <div class="col-12 noResultfound" *ngIf="result?.length === 0">
+        <p class="m-0">{{ "no.data.found" | translate }}</p>
       </div>
     </div>
   </div>
