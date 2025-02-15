@@ -1,4 +1,3 @@
-import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -35,7 +34,7 @@ export class NumberInputComponent implements OnInit, ControlValueAccessor {
   }
 
   doInput(): void {
-    this.onChange(this.numberField.value);
+    this.onChange(Number.parseInt(this.numberField.value));
   }
 
   doBlur(): void {

@@ -3,7 +3,9 @@
   appearance="fill"
   [formGroup]="parentForm"
 >
-  <mat-chip-list #authorList aria-label="Author Selection">
+  <div #authorList aria-label="Author Selection">
+    <!-- TODO: needs to be fixed back to  mat-chip-list -->
+  <!-- <mat-chip-list #authorList aria-label="Author Selection"> -->
     <mat-chip
       *ngFor="let author of authorsControl.value"
       (removed)="remove(author)"
@@ -21,7 +23,7 @@
       [matChipInputFor]="authorList"
       required
     />
-  </mat-chip-list>
+  </div>
   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
     <mat-option *ngFor="let author of filteredAuthors | async" [value]="author">
       {{ author?.title }} {{ author?.lasttitle }}
