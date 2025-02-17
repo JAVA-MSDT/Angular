@@ -1,8 +1,9 @@
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { CoursesService } from '../courses.service';
 import { Author } from 'src/app/domain/author';
 
@@ -12,6 +13,7 @@ import { Author } from 'src/app/domain/author';
   styleUrls: ['./authors.component.scss'],
 })
 export class AuthorsComponent implements OnInit {
+  separatorKeysCodes: number[] = [ENTER, COMMA];
   @Input() authorsControl: FormArray;
   @Input() parentForm: FormGroup;
   @Input() placeholder: FormGroup;
@@ -22,22 +24,18 @@ export class AuthorsComponent implements OnInit {
   @ViewChild('authorInput') authorInput: ElementRef<HTMLInputElement>;
 
   constructor(private coursesService: CoursesService) {
-    this.filteredAuthors = this.authorCtrl.valueChanges.pipe(
-      map((author: Author) =>
-        author ? this._filter(author) : this.allAuthors?.slice()
-      )
-    );
   }
 
   ngOnInit(): void {
     this.coursesService.getAuthors().subscribe((author) => {
       this.allAuthors = author;
+      this.initializeFilteredAuthors();
     });
   }
 
   remove(author: Author): void {
     const index = this.authorsControl.value.indexOf(author);
-    
+
     if (index >= 0) {
       this.authorsControl.removeAt(index);
     }
@@ -50,7 +48,24 @@ export class AuthorsComponent implements OnInit {
     this.authorCtrl.setValue(null);
   }
 
-  private _filter(value: Author): Author[] {
-    return this.allAuthors.filter((authors) => authors === value);
+  onInputFocus(): void {
+    if (!this.authorCtrl.value) {
+      this.authorCtrl.setValue('');
+    }
+  }
+
+  private initializeFilteredAuthors() {
+    this.filteredAuthors = this.authorCtrl.valueChanges.pipe(
+      map((value) => (typeof value === 'string' ? this._filter(value) : this.allAuthors.slice()))
+    );
+  }
+
+  private _filter(value: any): Author[] {
+    const filterValue = value.toLowerCase();
+    return this.allAuthors
+      .filter((author) =>
+        author.title.toLowerCase().includes(filterValue) ||
+        author.lasttitle.toLowerCase().includes(filterValue)
+      );
   }
 }

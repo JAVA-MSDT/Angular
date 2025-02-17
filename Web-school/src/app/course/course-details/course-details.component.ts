@@ -2,12 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { AddCourse } from 'src/app/actions/course.actions';
 import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
-import { State } from 'src/app/reducers';
 import { CommonService } from 'src/app/services/common-service.service';
 import { ShareDataService } from 'src/app/services/share-data.service';
 import { ConfirmationModalComponent } from 'src/app/shared/modals/confirmation/confirmation.component';
@@ -58,7 +55,6 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private modal: NgbModal,
     private translateService: TranslateService,
-    private store: Store<State>,
     private commonService: CommonService
   ) {}
 
@@ -146,7 +142,6 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
         }
       );
     } else {
-      // this.store.dispatch(new AddCourse(course));
       this.courseService.addCourse(course).subscribe(
         (result) => {
           this.openConfirmationCourseModal();

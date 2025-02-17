@@ -1,26 +1,11 @@
 {
   "courses": [
     {
-      "title": "Updated Course",
-      "creatingDate": "2017-07-07",
-      "duration": 269,
-      "topRated": false,
-      "description": "Fugiat velit aliquip quis veniam culpa consequat fugiat voluptate magna exercitation eiusmod sit qui. Dolor nostrud enim commodo non eu ut nostrud aliquip aute anim ex veniam eiusmod esse. Eu nulla non dolore et voluptate labore ipsum est sit nisi qui.",
-      "authors": [
-        {
-          "id": 5524,
-          "title": "Cobb",
-          "lasttitle": "Hudson"
-        }
-      ],
-      "id": "8464"
-    },
-    {
-      "id": "9664",
-      "title": "proident do non aute",
-      "description": "Ut aliqua exercitation in sit non adipisicing amet. Occaecat et fugiat minim officia ut in non et nulla. Nisi incididunt culpa ad magna do laboris.",
-      "topRated": true,
+      "title": "New Updating Course",
       "creatingDate": "2017-02-18",
+      "duration": 274,
+      "topRated": false,
+      "description": "Ut aliqua exercitation in sit non adipisicing amet. Occaecat et fugiat minim officia ut in non et nulla. Nisi incididunt culpa ad magna do laboris.",
       "authors": [
         {
           "id": 4441,
@@ -41,9 +26,24 @@
           "id": 2138,
           "title": "Torres",
           "lasttitle": "Farley"
+        },
+        {
+          "id": 4441,
+          "title": "Willa",
+          "lasttitle": "Cortez"
+        },
+        {
+          "id": 4998,
+          "title": "Doyle",
+          "lasttitle": "Webster"
+        },
+        {
+          "id": 3509,
+          "title": "Jessie",
+          "lasttitle": "Kelly"
         }
       ],
-      "duration": 274
+      "id": "9664"
     },
     {
       "id": "8194",
@@ -521,67 +521,11 @@
       "duration": 45
     },
     {
-      "title": "Adding Course 01",
-      "creatingDate": "2021-12-02",
-      "duration": 50,
-      "topRated": false,
-      "description": "редактирования",
-      "id": "9819"
-    },
-    {
-      "title": "Adding Course 03",
-      "creatingDate": "2021-12-03",
-      "duration": 80,
-      "topRated": false,
-      "description": "Adding Course 03",
-      "id": "9821"
-    },
-    {
-      "title": "Adding Course 04",
-      "creatingDate": "2021-12-01",
-      "duration": 200,
-      "topRated": false,
-      "description": "Adding Course 04",
-      "id": "9822"
-    },
-    {
-      "title": "Editing Course 05 HTTP",
-      "creatingDate": "2021-12-24",
-      "duration": 65,
-      "topRated": false,
-      "description": "this.backToCourses Edit",
-      "id": "9823"
-    },
-    {
-      "title": "Adding Course 06",
-      "creatingDate": "2021-11-18",
-      "duration": 70,
-      "topRated": false,
-      "description": "Adding Course 06",
-      "id": "9824"
-    },
-    {
-      "title": "HTTP",
-      "creatingDate": "2021-12-24",
+      "title": "New Course 2 authors",
+      "creatingDate": "2025-02-14",
       "duration": 100,
       "topRated": false,
-      "description": "Http Service Created ",
-      "id": "9825"
-    },
-    {
-      "title": "Author Test",
-      "creatingDate": "2021-12-31",
-      "duration": 100,
-      "topRated": false,
-      "description": "Author Test",
-      "id": "9826"
-    },
-    {
-      "title": "Author Test 02",
-      "creatingDate": "2021-12-31",
-      "duration": 60,
-      "topRated": false,
-      "description": "Author Test 02",
+      "description": "New Course 2 authors",
       "authors": [
         {
           "id": 4441,
@@ -589,12 +533,22 @@
           "lasttitle": "Cortez"
         },
         {
-          "id": 8318,
-          "title": "Rowland",
-          "lasttitle": "Vasquez"
+          "id": 9562,
+          "title": "Dejesus",
+          "lasttitle": "Snow"
+        },
+        {
+          "id": 4998,
+          "title": "Doyle",
+          "lasttitle": "Webster"
+        },
+        {
+          "id": 9364,
+          "title": "Berger",
+          "lasttitle": "Powell"
         }
       ],
-      "id": "9827"
+      "id": "8811"
     }
   ]
 }

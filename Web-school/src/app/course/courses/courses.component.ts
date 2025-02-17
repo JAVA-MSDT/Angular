@@ -1,13 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { fromEvent, Observable } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ROUTER_PATH } from 'src/app/appConfig/router-path-const';
 import { CourseDomain } from 'src/app/domain/course-domain';
-import { State } from 'src/app/reducers';
 import { ShareDataService } from 'src/app/services/share-data.service';
 import { ConfirmationModalComponent } from 'src/app/shared/modals/confirmation/confirmation.component';
 import { CoursesService } from '../courses.service';
@@ -40,11 +38,7 @@ export class CoursesComponent implements OnInit {
     private translateService: TranslateService,
     private router: Router,
     private shareDataService: ShareDataService,
-    private store: Store<State>
   ) {
-    store
-      .select((state) => state.courses)
-      .subscribe((courses) => console.log(courses));
   }
 
   ngOnInit(): void {
@@ -134,7 +128,6 @@ export class CoursesComponent implements OnInit {
     if (result === this.saveAction) {
       this.coursesService.deleteCourseById(this.courseIdToDelete).subscribe(
         (result) => {
-          console.log(result);
           this.setCourses();
         },
         (error) => {

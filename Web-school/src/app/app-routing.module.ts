@@ -8,7 +8,6 @@ import { AuthGuard } from './auth/guard/auth.guard';
 import { CoursesComponent } from './course/courses/courses.component';
 import { CourseDetailsComponent } from './course/course-details/course-details.component';
 import { BREADCRUMB_CONST } from './appConfig/breadcrumb-const';
-import { CourseResolver } from './resolvers/course.resolver';
 
 export const routes: Routes = [
   {
@@ -41,8 +40,7 @@ export const routes: Routes = [
         path: ROUTER_PATH.id,
         canActivate: [AuthGuard],
         component: CourseDetailsComponent,
-        data: { breadcrumb: "(data: any) => data.course.title "},
-        resolve: { course: CourseResolver },
+        data: { breadcrumb: BREADCRUMB_CONST.EDIT_COURSE},
       },
     ],
   },
