@@ -1,7 +1,7 @@
 <div>
-    <div class="modal-header">
+    <div class="modal-header d-flex justify-content-between">
       <h4 class="modal-title" id="modal-title">{{modalTitle}}</h4>
-      <button type="button" class="close" aria-label="Close" (click)="close(closeAction)">
+      <button type="button" class="close btn btn-light" aria-label="Close" (click)="close(closeAction)">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -9,7 +9,7 @@
       <p id="modal-message">{{modalMessage}}</p>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="close(closeAction)">{{closeTitle}}</button>
-      <button type="button" class="btn btn-light" (click)="close(saveAction)">{{saveTitle}}</button>
+      <button type="button" class="btn btn-secondary" (click)="close(closeAction)">{{closeTitle}}</button>
+      <button type="button" class="btn btn-primary" (click)="close(saveAction)">{{saveTitle}}</button>
     </div>
   </div>

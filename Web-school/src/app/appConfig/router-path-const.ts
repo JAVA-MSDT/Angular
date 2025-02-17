@@ -6,5 +6,4 @@ export const ROUTER_PATH = {
     courseAdd: 'add',
     id: ':id',
     invalidPage: '**'
-
 };

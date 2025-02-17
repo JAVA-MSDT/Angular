@@ -82,7 +82,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       this.isLoading = false;
       this.initErrorMessages();
     }, 1000);
-    
+
     this.translateService
       .get(this.addAuthor)
       .subscribe((result) => (this.addAuthorPlaceHolder = result));
@@ -91,29 +91,33 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   generateCourseForm(): void {
     this.courseForm = this.formBuilder.group({
       courseDescription: [
-        this.isEdit && this.course ? this.course.description : null,
+        this.isEditCourse() ? this.course.description : null,
         [
           Validators.required,
           Validators.maxLength(this.descriptionMaxLengthChars),
         ],
       ],
       courseTitle: [
-        this.isEdit && this.course ? this.course.title : null,
+        this.isEditCourse() ? this.course.title : null,
         [Validators.required, Validators.maxLength(this.titleMaxLengthChars)],
       ],
       courseDuration: [
-        this.isEdit && this.course ? this.course.duration : null,
+        this.isEditCourse() ? this.course.duration : null,
         [Validators.required, Validators.min(this.durationMinimumTime)],
       ],
       courseCreatingDate: [
-        this.isEdit && this.course ? this.course.creatingDate : null,
+        this.isEditCourse() ? this.course.creatingDate : null,
         Validators.required,
       ],
       authors: this.formBuilder.array(
-        this.isEdit && this.course ? this.course.authors : [],
+        this.isEditCourse() ? this.course.authors : [],
         Validators.required
       ),
     });
+  }
+
+  private isEditCourse() {
+    return this.isEdit && this.course;
   }
 
   setCourse(result: CourseDomain): void {
@@ -135,7 +139,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     if (this.courseId) {
       this.courseService.updateCourse(this.courseId, course).subscribe(
         (result) => {
-          this.openDeleteCourseModal();
+          this.openConfirmationCourseModal();
         },
         (error) => {
           console.log(error);
@@ -145,7 +149,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
       // this.store.dispatch(new AddCourse(course));
       this.courseService.addCourse(course).subscribe(
         (result) => {
-          this.openDeleteCourseModal();
+          this.openConfirmationCourseModal();
         },
         (error) => {
           console.log(error);
@@ -154,7 +158,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
-  private openDeleteCourseModal(): void {
+  private openConfirmationCourseModal(): void {
     this.confirmCourseModalRef = this.modal.open(ConfirmationModalComponent, {
       centered: true,
       backdrop: 'static',
