@@ -23,14 +23,11 @@ export class AuthorsComponent implements OnInit {
 
   @ViewChild('authorInput') authorInput: ElementRef<HTMLInputElement>;
 
-  constructor(private coursesService: CoursesService) {
+  constructor(private courseService: CoursesService) {
   }
 
   ngOnInit(): void {
-    this.coursesService.getAuthors().subscribe((author) => {
-      this.allAuthors = author;
-      this.initializeFilteredAuthors();
-    });
+    this.getAuthors();
   }
 
   remove(author: Author): void {
@@ -52,6 +49,16 @@ export class AuthorsComponent implements OnInit {
     if (!this.authorCtrl.value) {
       this.authorCtrl.setValue('');
     }
+  }
+
+  private getAuthors() {
+    this.courseService.getAuthors().subscribe(
+      (author) => {
+        this.allAuthors = author;
+        this.initializeFilteredAuthors();
+      },
+      (error) => console.log('Http Error of getting authors:', error)
+    );
   }
 
   private initializeFilteredAuthors() {

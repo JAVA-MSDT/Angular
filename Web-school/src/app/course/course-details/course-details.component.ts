@@ -65,9 +65,10 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     });
 
     if (this.courseId) {
-      this.courseService.getCourseById(this.courseId).subscribe((result) => {
-        this.setCourse(result);
-      });
+      this.courseService.getCourseById(this.courseId).subscribe(
+        (course) => this.setCourse(course),
+        (error) => console.log('Http Error of getting course:', error)
+      );
     }
 
     this.shareDataService.isEditControl.subscribe(
@@ -134,21 +135,13 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     };
     if (this.courseId) {
       this.courseService.updateCourse(this.courseId, course).subscribe(
-        (result) => {
-          this.openConfirmationCourseModal();
-        },
-        (error) => {
-          console.log(error);
-        }
+        (result) => this.openConfirmationCourseModal(),
+        (error) => console.log('Http Error of updating course:', error)
       );
     } else {
       this.courseService.addCourse(course).subscribe(
-        (result) => {
-          this.openConfirmationCourseModal();
-        },
-        (error) => {
-          console.log(error);
-        }
+        (result) => this.openConfirmationCourseModal(),
+        (error) => console.log('Http Error of adding course:', error)
       );
     }
   }

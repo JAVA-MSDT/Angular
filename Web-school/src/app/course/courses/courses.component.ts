@@ -22,7 +22,7 @@ export class CoursesComponent implements OnInit {
   deleteCourseModalRef: NgbModalRef;
   filterText: string;
   orderByOption: string;
-  courseIdToDelete;
+  courseIdToDelete: number;
   closeResult: string = ROUTER_PATH.loginPage;
 
   modalTitle: string = 'remove.course';
@@ -33,7 +33,7 @@ export class CoursesComponent implements OnInit {
   modalMessage: string = 'delete.course.message';
 
   constructor(
-    private coursesService: CoursesService,
+    private courseService: CoursesService,
     private modal: NgbModal,
     private translateService: TranslateService,
     private router: Router,
@@ -57,17 +57,18 @@ export class CoursesComponent implements OnInit {
         distinctUntilChanged()
       )
       .subscribe((text: string) => {
-        this.searchGetCall(text).subscribe((res: CourseDomain[]) => {
-          this.courses = res;
-        });
+        this.searchGetCall(text).subscribe(
+          (res: CourseDomain[]) => this.courses = res,
+          (error: any) => console.error('Http Error searching courses:', error)
+        );
       });
   }
 
   private searchGetCall(term: string): Observable<CourseDomain[]> {
     if (term === '') {
-      return this.coursesService.getCourses();
+      return this.courseService.getCourses();
     }
-    return this.coursesService.getCourseOnSerach(term);
+    return this.courseService.getCourseOnSerach(term);
   }
 
   deleteCourse(courseId: number): void {
@@ -126,13 +127,9 @@ export class CoursesComponent implements OnInit {
 
   deleteCourseOnConfirm(result: string): void {
     if (result === this.saveAction) {
-      this.coursesService.deleteCourseById(this.courseIdToDelete).subscribe(
-        (result) => {
-          this.setCourses();
-        },
-        (error) => {
-          console.log(error);
-        }
+      this.courseService.deleteCourseById(this.courseIdToDelete).subscribe(
+        (result) => this.setCourses(),
+        (error) => console.log(error)
       );
     }
   }
@@ -145,8 +142,11 @@ export class CoursesComponent implements OnInit {
   }
 
   setCourses(): void {
-    this.coursesService
+    this.courseService
       .getCourses()
-      .subscribe((courses) => (this.courses = courses));
+      .subscribe(
+        (courses) => (this.courses = courses),
+        (error) => console.log('Http Error getting courses:', error)
+      );
   }
 }
