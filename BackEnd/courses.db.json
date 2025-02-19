@@ -31,16 +31,6 @@
           "id": 4441,
           "title": "Willa",
           "lasttitle": "Cortez"
-        },
-        {
-          "id": 4998,
-          "title": "Doyle",
-          "lasttitle": "Webster"
-        },
-        {
-          "id": 4441,
-          "title": "Willa",
-          "lasttitle": "Cortez"
         }
       ],
       "id": "9664"
@@ -501,34 +491,24 @@
       "duration": 45
     },
     {
-      "title": "New Course 2 authors",
+      "id": "44e8",
+      "title": "Testing",
       "creatingDate": "2025-02-14",
-      "duration": 100,
+      "duration": 120,
       "topRated": false,
-      "description": "New Course 2 authors",
+      "description": "Testing course number id",
       "authors": [
-        {
-          "id": 4441,
-          "title": "Willa",
-          "lasttitle": "Cortez"
-        },
-        {
-          "id": 9562,
-          "title": "Dejesus",
-          "lasttitle": "Snow"
-        },
         {
           "id": 4998,
           "title": "Doyle",
           "lasttitle": "Webster"
         },
         {
-          "id": 9364,
-          "title": "Berger",
-          "lasttitle": "Powell"
+          "id": 4441,
+          "title": "Willa",
+          "lasttitle": "Cortez"
         }
-      ],
-      "id": "8811"
+      ]
     }
   ]
 }

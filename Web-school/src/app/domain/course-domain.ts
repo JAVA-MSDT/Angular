@@ -1,7 +1,7 @@
 import { Author } from "./author";
 
 export interface CourseDomain {
-  id?: number;
+  id?: number | string;
   title: string;
   creatingDate: string;
   duration: number;
