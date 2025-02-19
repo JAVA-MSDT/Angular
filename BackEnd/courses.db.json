@@ -1,7 +1,7 @@
 {
   "courses": [
     {
-      "title": "New Updating Course",
+      "title": "Updating Course new",
       "creatingDate": "2017-02-18",
       "duration": 274,
       "topRated": false,
@@ -36,6 +36,11 @@
           "id": 4998,
           "title": "Doyle",
           "lasttitle": "Webster"
+        },
+        {
+          "id": 4441,
+          "title": "Willa",
+          "lasttitle": "Cortez"
         }
       ],
       "id": "9664"
@@ -184,26 +189,6 @@
         }
       ],
       "duration": 358
-    },
-    {
-      "id": "4276",
-      "title": "nulla veniam ad Lorem",
-      "description": "Cupidatat eu aliquip magna anim do nulla duis cillum aliquip pariatur cupidatat. Tempor voluptate eu ipsum voluptate do deserunt tempor excepteur Lorem ipsum incididunt incididunt. Mollit incididunt amet tempor dolor tempor commodo ea laboris laborum exercitation occaecat ex.",
-      "topRated": false,
-      "creatingDate": "2016-11-13",
-      "authors": [
-        {
-          "id": 1980,
-          "title": "Leona",
-          "lasttitle": "Bailey"
-        },
-        {
-          "id": 5365,
-          "title": "Edwards",
-          "lasttitle": "Nunez"
-        }
-      ],
-      "duration": 52
     },
     {
       "id": "5",

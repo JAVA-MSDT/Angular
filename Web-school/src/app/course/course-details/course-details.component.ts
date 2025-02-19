@@ -31,7 +31,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   readonly descriptionMaxLengthChars = 500;
   readonly durationMinimumTime = 10;
 
-  courseId: number;
+  courseId: number | string;
   course: CourseDomain;
   isEdit: boolean;
   isLoading = true;
@@ -60,7 +60,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
-      let id = parseInt(param.get('id'));
+      let id = param.get('id');
       this.courseId = id;
     });
 
@@ -117,8 +117,8 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
     return this.isEdit && this.course;
   }
 
-  setCourse(result: CourseDomain): void {
-    this.course = result;
+  setCourse(course: CourseDomain): void {
+    this.course = course;
   }
   backToCourses(): void {
     this.router.navigate([ROUTER_PATH.contextPath + ROUTER_PATH.coursesPage]);
@@ -234,6 +234,7 @@ export class CourseDetailsComponent implements OnInit, OnDestroy {
   isErrorBroder(courseForm: FormGroup, inputformName: string): boolean {
     return this.commonService.isErrorBroder(courseForm, inputformName);
   }
+
   ngOnDestroy(): void {
     this.shareDataService.setIsEdit(false);
   }

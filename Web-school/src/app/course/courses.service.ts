@@ -20,7 +20,7 @@ export class CoursesService {
     return this.httpService.httpRequest(HTTP_CONST.GET, this.api, null, null);
   }
 
-  getCourseById(courseId: number): Observable<CourseDomain> {
+  getCourseById(courseId: number | string): Observable<CourseDomain> {
     return this.httpService.httpRequest(
       HTTP_CONST.GET,
       `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
@@ -41,7 +41,7 @@ export class CoursesService {
   }
 
   updateCourse(
-    courseId: number,
+    courseId: number | string,
     course: CourseDomain
   ): Observable<CourseDomain> {
     return this.httpService.httpRequest(
@@ -61,7 +61,7 @@ export class CoursesService {
     );
   }
 
-  deleteCourseById(courseId: number): Observable<void> {
+  deleteCourseById(courseId: number | string): Observable<void> {
     return this.httpService.httpRequest(
       HTTP_CONST.DELETE,
       `${this.api}${ROUTER_PATH.contextPath}${courseId}`,
