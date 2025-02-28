@@ -1,0 +1,33 @@
+<mat-form-field
+  class="example-chip-list"
+  appearance="fill"
+  [formGroup]="parentForm"
+>
+  <mat-chip-grid #authorList aria-label="Author Selection">
+    <mat-chip-row
+      *ngFor="let author of authorsControl.value"
+      (removed)="remove(author)"
+      [editable]="true"
+    >
+      {{ author?.title }}
+      <button matChipRemove [attr.aria-label]="'remove ' + author?.title">
+        <mat-icon>x</mat-icon>
+      </button>
+    </mat-chip-row>
+    <input
+      [placeholder]="placeholder"
+      #authorInput
+      [formControl]="authorCtrl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="authorList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (focus)="onInputFocus()"
+      required
+    />
+  </mat-chip-grid>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let author of filteredAuthors | async" [value]="author">
+      {{ author?.title }} {{ author?.lasttitle }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

@@ -1,0 +1,156 @@
+<div
+  *ngIf="isLoading"
+  class="vh-100 bg-light d-flex justify-content-center align-items-center"
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<div
+  *ngIf="!isLoading"
+  class="container course-component-container"
+  [webCourseBorderStyle]="course?.creatingDate"
+  [ngClass]="{ topRatedCourse: course?.topRated }"
+>
+  <h2 *ngIf="isEdit">{{ "edit.course" | translate }}</h2>
+  <h2 *ngIf="!isEdit">{{ "add.course" | translate }}</h2>
+  <form
+    class="align-items-center"
+    [formGroup]="courseForm"
+    (ngSubmit)="onFormSubmit()"
+  >
+    <div class="row p-4">
+      <div class="col-12 my-2">
+        <label for="courseTitle" class="form-label input-label">{{
+          "course.title" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <input
+          type="text"
+          class="form-control"
+          id="courseTitle"
+          formControlName="courseTitle"
+          [ngClass]="
+            isErrorBroder(courseForm, 'courseTitle') ? 'input-error' : ''
+          "
+        />
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseTitle"
+          errorName="required"
+          [errorMessage]="titlerRequired"
+          [displayOnToutchedOrDirty]="true"
+        ></web-error-message>
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseTitle"
+          errorName="maxlength"
+          [errorMessage]="titleMaxLength"
+          [displayOnToutchedOrDirty]="false"
+        ></web-error-message>
+      </div>
+      <div class="col-12 my-2">
+        <label for="courseDescription" class="form-label input-label">{{
+          "course.description" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <textarea
+          rows="5"
+          cols="33"
+          class="form-control"
+          id="courseDescription"
+          formControlName="courseDescription"
+          [ngClass]="
+            isErrorBroder(courseForm, 'courseDescription') ? 'input-error' : ''
+          "
+        ></textarea>
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseDescription"
+          errorName="required"
+          [errorMessage]="descriptionRequired"
+          [displayOnToutchedOrDirty]="true"
+        ></web-error-message>
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseDescription"
+          errorName="maxlength"
+          [errorMessage]="descriptionMaxLength"
+          [displayOnToutchedOrDirty]="false"
+        ></web-error-message>
+      </div>
+      <div class="col-12 my-2">
+        <label for="courseCreatingDate" class="form-label input-label">{{
+          "course.creating.date" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <input
+          type="date"
+          class="form-control"
+          id="courseCreatingDate"
+          formControlName="courseCreatingDate"
+          [ngClass]="
+            isErrorBroder(courseForm, 'courseCreatingDate') ? 'input-error' : ''
+          "
+        />
+      </div>
+      <div class="col-12 my-2">
+        <label for="courseDuration" class="form-label input-label">{{
+          "course.duration" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <web-number-input
+          classesName="form-control"
+          formControlName="courseDuration"
+          id="courseDuration"
+          [errorClass]="
+            isErrorBroder(courseForm, 'courseDuration') ? 'input-error' : ''
+          "
+        ></web-number-input>
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseDuration"
+          errorName="required"
+          [errorMessage]="durationRequired"
+          [displayOnToutchedOrDirty]="true"
+        ></web-error-message>
+        <web-error-message
+          [formGroupErrorName]="courseForm"
+          formControlErrorName="courseDuration"
+          errorName="min"
+          [errorMessage]="durationMinimumTimeMessage"
+          [displayOnToutchedOrDirty]="true"
+        ></web-error-message>
+      </div>
+      <div class="col-12 my-2">
+        <label for="" class="form-label input-label">{{
+          "authors.label" | translate
+        }}</label>
+        <p class="float-end required">*{{ "required" | translate }}</p>
+        <web-authors
+          [authorsControl]="courseForm.controls.authors"
+          [parentForm]="courseForm"
+          [placeholder]="addAuthorPlaceHolder"
+        ></web-authors>
+      </div>
+      <div class="col-12 my-2 d-flex justify-content-end align-items-center">
+        <button
+          [disabled]="!courseForm.valid"
+          type="reset"
+          class="btn btn-secondary me-3"
+        >
+          {{ "cancel" | translate }}
+        </button>
+        <button
+          [disabled]="!courseForm.valid"
+          type="submit"
+          class="btn btn-success"
+        >
+          {{ "submit" | translate }}
+        </button>
+      </div>
+    </div>
+    <a (click)="backToCourses()" tabindex="0" href="javascript:void(0);">{{
+      "back.to.courses" | translate
+    }}</a>
+  </form>
+</div>
