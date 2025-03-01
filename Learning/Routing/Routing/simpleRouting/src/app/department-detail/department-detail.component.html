@@ -1,0 +1,17 @@
+<h3>You select department with Id = {{ departmentId }}</h3>
+<br />
+<p>
+  <button (click)="showOverview()">Overview</button>
+  <button (click)="showContact()">Contact</button>
+</p>
+<br />
+<router-outlet></router-outlet>
+<br />
+<p>
+  <button (click)="goPrevious()">Previous</button> <br />
+  <button (click)="goNext()">Next</button>
+</p>
+<br />
+<div>
+  <button (click)="gotoDepartments()">Back</button>
+</div>
