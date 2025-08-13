@@ -12,7 +12,7 @@ export class OnlineStatus implements AfterContentInit {
 
   ngAfterContentInit(): void {
     if (this.appOnlineStatus === true) {
-      this.element.nativeElement.innerHTML += ' <i class"bi bi-lightning-fill></i>'
+      this.element.nativeElement.innerHTML += ' <i class="bi bi-lightning-fill"></i>'
     }
   }
 

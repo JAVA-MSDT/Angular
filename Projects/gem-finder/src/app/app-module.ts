@@ -8,7 +8,8 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 
 @NgModule({
   declarations: [
-    App],
+    App,
+],
   imports: [
     BrowserModule,
     AppRoutingModule,

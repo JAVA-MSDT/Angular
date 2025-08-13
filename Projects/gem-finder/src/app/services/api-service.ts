@@ -12,7 +12,13 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   public getAllPlayers(): Observable<Player[]> {
-    return this.http.get<Player[]>('/assets/mocks/players.json').pipe(delay(100));
+    return this.http.get<Player[]>('/assets/mocks/players.json').pipe(delay(1000));
+  }
+
+  public getPlayerById(id: string) {
+    return this.getAllPlayers().pipe(
+      map(players => players.find(player => player.id === id))
+    );
   }
 
   public getPlayersByName(name: string): Observable<Player[]> {

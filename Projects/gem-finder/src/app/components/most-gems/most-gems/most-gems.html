@@ -1,0 +1,12 @@
+<h2 class="my-4">Most Gems</h2>
+
+<ul *ngIf="players$ | async as players; else loading" class="my-4">
+  <li *ngFor="let player of players | sortByGymCount | slice : 0 : 5">
+    <a [routerLink]="['/profile', player.id]" [appOnlineStatus]="player.online">{{ player.name }}</a>
+    <span class="lead"> {{ player.gems.length | number }}</span>
+  </li>
+</ul>
+
+<ng-template #loading>
+  <p class="my-4">Loading gem counts&hellip;</p>
+</ng-template>

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { LeaderboardsRoutingModule } from './leaderboards-routing-module';
 import { Leaderboards } from './leaderboards';
+import { HighScores } from "../../components/high-scores/high-scores/high-scores";
+import { MostGems } from "../../components/most-gems/most-gems/most-gems";
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { Leaderboards } from './leaderboards';
   ],
   imports: [
     CommonModule,
-    LeaderboardsRoutingModule
-  ]
+    LeaderboardsRoutingModule,
+    HighScores,
+    MostGems
+]
 })
 export class LeaderboardsModule { }
