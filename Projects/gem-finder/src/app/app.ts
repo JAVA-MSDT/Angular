@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,5 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('gem-finder');
+  public appFooter = environment.appFooter;
 }
