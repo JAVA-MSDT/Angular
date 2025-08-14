@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  {
+    path: 'profile/:id',
+    loadComponent: () => import('./pages/profile/profile').then(c => c.Profile),
+    title: (route: ActivatedRouteSnapshot) => `Gem Finder | Profile: ${route.paramMap.get('id')}`
+  },
   {
     path: 'players',
     loadChildren: () => import('./pages/players/players-module').then(m => m.PlayersModule),
